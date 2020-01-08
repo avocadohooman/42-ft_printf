@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   conversion_distributor.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:10:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/07 12:38:57 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/08 13:34:43 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/08 17:05:58 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+void	conversion_distributor(t_menu *menu, char c, va_list arg)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i++;
-	}
-	if (s[i] == c)
-		return ((char *)s + i);
-	return (NULL);
+	if (c == 'c')
+		conv_c(menu, arg);
 }

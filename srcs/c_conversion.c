@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   c_conversion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:10:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/07 12:38:57 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/08 14:23:22 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/08 17:25:29 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+void	conv_c(t_menu *menu, va_list arg)
 {
-	size_t i;
+	unsigned char c;
 
-	i = 0;
-	while (s[i])
+	c = (unsigned char)va_arg(arg, int);
+	if (menu->minus == 0 && menu->width)
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i++;
+		if (menu->zero == 1)
+			printzero(menu);
+		else if (!menu->zero)
+			printspace(menu);
 	}
-	if (s[i] == c)
-		return ((char *)s + i);
-	return (NULL);
+	if (menu->minus == 1 && menu->width)
+	{
+		ft_putchar(c);
+		printspace(menu);
+	}
+	else
+		ft_putchar(c);
+	menu->printed++;
 }

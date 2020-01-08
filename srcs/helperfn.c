@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   helperfn.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:10:30 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/07 12:38:57 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/08 17:05:47 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+void	printspace(t_menu *menu)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i])
+	while (menu->width - 1 > 0)
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i++;
+		ft_putchar(' ');
+		menu->width--;
 	}
-	if (s[i] == c)
-		return ((char *)s + i);
-	return (NULL);
+}
+
+void	printzero(t_menu *menu)
+{
+	while (menu->width - 1 > 0)
+	{
+		ft_putchar('0');
+		menu->width--;
+	}
 }
