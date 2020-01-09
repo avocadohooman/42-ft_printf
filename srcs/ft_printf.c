@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 09:50:00 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/08 17:14:36 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 15:25:50 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 {
 	menu->i = pos;
 	if (ft_strchr(FLAGS, fmt[pos]))
-		modifier(menu, fmt);
+		modifier(menu, fmt, arg);
 	else
 	{
 		conversion_distributor(menu, fmt[pos], arg);
@@ -107,5 +107,6 @@ int		ft_printf(const char *fmt, ...)
 		return (0);
 	c_count = fmt_parser(menu, fmt, arg, 0);
 	va_end(arg);	
+	free(menu);
 	return (c_count);
 }

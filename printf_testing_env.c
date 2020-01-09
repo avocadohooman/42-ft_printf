@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/08 17:23:53 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 17:24:01 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int main()
 	printf("'%-15.2f'\n", 10.3456);	
 	printf("'%-15.2f'\n", 101234567.3456);	
 
-	char c = 4;
-	printf("'%hhd'\n", c);
+	//char c = 4;
+	//printf("'%hhd'\n", c);
 
 	char *str = "Hello World";
 	int data = 29;
@@ -85,9 +85,16 @@ int main()
 
 	//Testing conversion c
 
-	char a = 'A';
-	
-	printf("'%0*c'\n", 5, a);
+	char c = 'A';
+	char b = 'B';
+
+	//printf("'%c'\n", c);
+	//printf("'%-*5c'\n'%-10c'\n", 10, c, b);
+
+
+	//Testing conversion s
+
+	printf("'%10.4s'\n",str);
 
 	return (0);
 }

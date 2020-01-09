@@ -6,13 +6,13 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 15:22:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/06 15:28:34 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 16:38:11 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(uint64_t n, int base)
+char	*ft_itoa_base(uintmax_t  n, int base)
 {
 	char	*str;
 	int		i;

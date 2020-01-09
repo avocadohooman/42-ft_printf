@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_digits.c                                  :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 15:23:40 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/09 16:18:26 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 10:48:32 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/09 12:25:34 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_digits(uint64_t n, int base)
+char	*ft_strndup(const char *s1, int nb)
 {
-	if (n < (uint64_t)base)
-		return (1);
-	else
-		return (ft_count_digits(n / base, base) + 1);
+	size_t	i;
+	char	*copy;
+
+	if (!(copy = ft_strnew(nb)))
+		return (NULL);
+	i = 0;
+	while (s1[i] && i < (size_t)nb)
+	{
+		copy[i] = s1[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }

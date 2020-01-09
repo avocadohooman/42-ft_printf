@@ -6,13 +6,14 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 11:41:03 by vkuokka           #+#    #+#              #
-#    Updated: 2019/11/19 09:41:54 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/09 16:20:16 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
 SRCS =	srcs/ft_bzero.c \
+		srcs/ft_count_digits.c \
 		srcs/ft_memccpy.c \
 		srcs/ft_memchr.c \
 		srcs/ft_memcmp.c \
@@ -22,12 +23,14 @@ SRCS =	srcs/ft_bzero.c \
 		srcs/ft_strlen.c \
 		srcs/ft_strclen.c \
 		srcs/ft_strdup.c \
+		srcs/ft_strndup.c \
 		srcs/ft_strcpy.c \
 		srcs/ft_strcat.c \
 		srcs/ft_strncat.c \
 		srcs/ft_strlcat.c \
 		srcs/ft_strchr.c \
 		srcs/ft_strrchr.c \
+		srcs/ft_strrev.c \
 		srcs/ft_strstr.c \
 		srcs/ft_strnstr.c \
 		srcs/ft_strcmp.c \
@@ -54,6 +57,7 @@ SRCS =	srcs/ft_bzero.c \
 		srcs/ft_memdel.c \
 		srcs/ft_memalloc.c \
 		srcs/ft_itoa.c \
+		srcs/ft_itoa_base.c \
 		srcs/ft_putstr.c \
 		srcs/ft_putendl.c \
 		srcs/ft_putnbr.c \
@@ -80,6 +84,7 @@ SRCS =	srcs/ft_bzero.c \
 		srcs/ft_lstlen.c
 
 OBJ =	ft_bzero.o \
+		ft_count_digits.o \
 		ft_memccpy.o \
 		ft_memchr.o \
 		ft_memcmp.o \
@@ -89,12 +94,14 @@ OBJ =	ft_bzero.o \
 		ft_strlen.o \
 		ft_strclen.o \
 		ft_strdup.o \
+		ft_strndup.o \
 		ft_strcpy.o \
 		ft_strcat.o \
 		ft_strncat.o \
 		ft_strlcat.o \
 		ft_strchr.o \
 		ft_strrchr.o \
+		ft_strrev.o \
 		ft_strstr.o \
 		ft_strnstr.o \
 		ft_strcmp.o \
@@ -121,6 +128,7 @@ OBJ =	ft_bzero.o \
 		ft_memdel.o \
 		ft_memalloc.o \
 		ft_itoa.o \
+		ft_itoa_base.o \
 		ft_putstr.o \
 		ft_putendl.o \
 		ft_putnbr.o \

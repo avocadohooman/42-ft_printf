@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/08 17:04:54 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 16:58:00 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,28 @@ void	conversion_distributor(t_menu *menu, char c, va_list arg);
 
 //modifier_setup.c functions
 
-void	modifier(t_menu *menu, const char* fmt);
+void	modifier(t_menu *menu, const char* fmt, va_list arg);
 void	flags(t_menu *menu, const char *fmt);
-
+void	width(t_menu *menu, const char* fmt, va_list arg);
 
 //c_conversion.c functions
 
 void	conv_c(t_menu *menu, va_list arg);
+void	conv_perc(t_menu *menu, va_list arg);
+
+//s_conversion.c functions
+
+void	conv_s(t_menu *menu, va_list arg);
+char	*conv_s_precision(char *str, int n);
+
+//p_conversion.c functions
+
+void	conv_p(t_menu *menu, va_list arg);
 
 //helperfn.c functions
 
-void	printspace(t_menu *menu);
-void	printzero(t_menu *menu);
+void	printspace(t_menu *menu, int nb);
+void	printzero(t_menu *menu, int nb);
+void	widthstar(t_menu *menu, const char *fmt, va_list arg);
 
 #endif

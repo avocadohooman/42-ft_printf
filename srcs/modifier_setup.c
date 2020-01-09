@@ -6,12 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/08 17:25:36 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 16:52:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h> //remove
 
 void	flags(t_menu *menu, const char *fmt)
 {
@@ -33,16 +32,36 @@ void	flags(t_menu *menu, const char *fmt)
 		menu->space = 0;
 }
 
-void	width(t_menu *menu, const char* fmt)
+void	width(t_menu *menu, const char	*fmt, va_list arg)
 {
+	widthstar(menu, fmt, arg);
 	if (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
 		menu->width = ft_atoi(&fmt[menu->i]);
 	while (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
 		menu->i++;
 }
 
-void	modifier(t_menu *menu, const char *fmt)
+void	precision(t_menu *menu, const char *fmt)
+{
+	if (fmt[menu->i] == '.') 
+	{
+		menu->precision = -1;
+		if (fmt[menu->i + 1] >= '0' && fmt[menu->i + 1] <= '9')
+		{
+			menu->i++;
+			menu->precision = ft_atoi(&fmt[menu->i]);
+			(menu->precision == 0) ? menu->precision = -1 : 0;
+		}
+		else
+			menu->i++;
+	}
+	while (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
+		menu->i++;
+}
+
+void	modifier(t_menu *menu, const char *fmt, va_list arg)
 {
 	flags(menu, fmt);
-	width(menu, fmt);
+	width(menu, fmt, arg);
+	precision(menu, fmt);
 }

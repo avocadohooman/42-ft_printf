@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 14:38:55 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/06 16:23:35 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/09 16:38:37 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 void				ft_bzero(void *s, size_t n);
-int					ft_count_digits(int n);
+int					ft_count_digits(uint64_t n, int base);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -36,6 +36,7 @@ void				*ft_memset(void *b, int c, size_t len);
 size_t				ft_strlen(const char *s);
 size_t				ft_strclen(const char *str, char c);
 char				*ft_strdup(const char *s1);
+char				*ft_strndup(const char *s1, int nb);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
@@ -70,7 +71,7 @@ char				*ft_strrev(char *str);
 void				ft_memdel(void **ap);
 void				*ft_memalloc(size_t size);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(uint64_t n, int base);
+char				*ft_itoa_base(uintmax_t n, int base);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
