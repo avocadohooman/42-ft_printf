@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/09 16:58:00 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/10 17:42:48 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define CONVERSION	"cspdiouxXf%"
 # define FLAGS		"#0-+ .*0123456789hlL"
 # define ALL		"#0-+ .*0123456789hlLcspdiouxXf%"
+# define LENGTH		"lLh"
 
 /*
 ** ------ STRUCTS ------
@@ -90,7 +91,7 @@ void	width(t_menu *menu, const char* fmt, va_list arg);
 //c_conversion.c functions
 
 void	conv_c(t_menu *menu, va_list arg);
-void	conv_perc(t_menu *menu, va_list arg);
+void	conv_perc(t_menu *menu);
 
 //s_conversion.c functions
 
@@ -100,6 +101,12 @@ char	*conv_s_precision(char *str, int n);
 //p_conversion.c functions
 
 void	conv_p(t_menu *menu, va_list arg);
+
+////id_conversion.c functions
+
+void	conv_id(t_menu *menu, va_list arg);
+char	*length_check_int(intmax_t n, t_menu *menu, va_list arg);
+char	*conv_id_precision(char *str, size_t nb, t_menu *menu);
 
 //helperfn.c functions
 

@@ -6,13 +6,13 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:23:22 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/09 14:43:11 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/10 17:27:43 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	conv_perc(t_menu *menu, va_list arg)
+void	conv_perc(t_menu *menu)
 {
 	unsigned char	c;
 	int				nb;

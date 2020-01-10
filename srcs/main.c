@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/09 17:48:41 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/10 17:54:28 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,34 @@ int main()
 	ft_printf("'%*20.4p'\n", 20, &a);
 	printf("'%*20.4p'\n", 20, &test);
 
-	printf("PRINTED: %d\n", ft_printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
-	printf("PRINTED: %d\n", printf("'UNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
+	//printf("PRINTED: %d\n", ft_printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
+	//printf("PRINTED: %d\n", printf("'UNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
 
+	/*
+	** ****************** TESTING ENVIRONMENT WITH %i and %d ******************
+	*/
+
+	ft_printf("\n******************  TESTING ENVIRONMENT WITH %%i AND %%d ******************\n\n");
+
+	long double d = 3.1415926535;
+	long long int i = 55165;
+	int	i2 = 3;
+
+	//printf( "%Lg\n", d );
+	//printf("\n'%015i'\n", i);
+
+	printf("'%lld'\n'%d'\n", i, i2);
+	ft_printf("'%lld'\n'%d'\n", i, i2);
+
+
+	ft_printf("'%+.5d'\n", i2);
+	printf("'%+.5d'\n", i2);
+
+
+
+	printf("'%+025.5d'\n", i2);
+	//ft_printf("'%lld'\n'%d'\n", i, i2);
+	
 	return (0);
 }
 

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion_distributor.c                           :+:      :+:    :+:   */
+/*   ft_strcnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/08 13:34:43 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/10 17:26:30 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/20 18:17:07 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/10 17:35:27 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-void	conversion_distributor(t_menu *menu, char c, va_list arg)
+char	*ft_strcnew(size_t size, int c)
 {
-	if (c == '%')
-		conv_perc(menu);
-	if (c == 'c')
-		conv_c(menu, arg);
-	if (c == 's')
-		conv_s(menu, arg);
-	if (c == 'p')
-		conv_p(menu, arg);
-	if (c == 'i' || c == 'd')
-		conv_id(menu, arg);
+	char *area;
+
+	if (!(area = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	ft_memset(area, c, (size));
+	return (area);
 }
