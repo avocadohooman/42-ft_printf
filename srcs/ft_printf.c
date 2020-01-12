@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 09:50:00 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/10 14:15:49 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/11 19:03:17 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ void	initiliaze_menu(t_menu *menu)
 	menu->hash = 0;
 	menu->space = 0;
 	menu->zero = 0;
+	menu->padding = 0;
 	menu->width = 0;
 	menu->length = 0;
 	menu->precision = 0;
 	menu->precisionft = 0;
+	menu->sign = 0;
 }
 
 void	initiliaze_menu2(t_menu *menu)
@@ -36,10 +38,12 @@ void	initiliaze_menu2(t_menu *menu)
 	menu->hash = 0;
 	menu->space = 0;
 	menu->zero = 0;
+	menu->padding = 0;
 	menu->width = 0;
 	menu->length = 0;
 	menu->precision = 0;
 	menu->precisionft = 0;
+	menu->sign = 0;
 }
 
 int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos)

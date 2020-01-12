@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/10 17:21:14 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/12 13:58:31 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ FLAGS = -Wall -Wextra -Werror
 
 SRCS1 = ./srcs/main.c ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
 		./srcs/modifier_setup.c ./srcs/c_conversion.c ./srcs/helperfn.c \
-		./srcs/s_conversion.c ./srcs/p_conversion.c ./srcs/id_conversion.c
+		./srcs/s_conversion.c ./srcs/p_conversion.c ./srcs/id_conversion.c \
+		./srcs/helperfn2.c
 
 OBJS = $(subst .c,.o,$(subst srcs/,,$(SRCS1)))
 

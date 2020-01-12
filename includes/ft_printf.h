@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/10 17:42:48 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/12 18:31:26 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,14 @@ typedef struct	s_menu
 	int			hash;			//	
 	int			space;			// spaces
 	int			zero;			// zeros instead of spaces
+	char		padding;		// 0 or ' '
 	
 	int			width;			// padding 0 - 9
 	int			length;			// h, hh, l, ll, L
 	int			precision;		//	. --> how many decimal or characters will be shown
 	int			precisionft;
+
+	int			sign;
 
 }				t_menu;
 
@@ -106,12 +109,20 @@ void	conv_p(t_menu *menu, va_list arg);
 
 void	conv_id(t_menu *menu, va_list arg);
 char	*length_check_int(intmax_t n, t_menu *menu, va_list arg);
-char	*conv_id_precision(char *str, size_t nb, t_menu *menu);
+char	*leftaligned(t_menu *menu, va_list arg, char *str);
+char	*rightaligned(t_menu *menu, va_list arg, char *str);
 
 //helperfn.c functions
 
 void	printspace(t_menu *menu, int nb);
 void	printzero(t_menu *menu, int nb);
 void	widthstar(t_menu *menu, const char *fmt, va_list arg);
+char	*pre_converter(char *str, size_t nb, t_menu *menu, char , int check);
+char	*conv_space(char *str, t_menu *menu);
+char	*converter_l(char *str, size_t nb, t_menu *menu, char c);
+
+//helperfn.c functions
+
+char	*zero_space(t_menu *menu, int nb, char *str);
 
 #endif

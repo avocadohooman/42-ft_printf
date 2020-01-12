@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 14:38:55 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/10 17:23:17 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/12 15:37:32 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 void				ft_bzero(void *s, size_t n);
-int					ft_count_digits(uint64_t n, int base);
+int					ft_count_digits(intmax_t n, intmax_t base);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -72,7 +72,7 @@ char				*ft_strrev(char *str);
 void				ft_memdel(void **ap);
 void				*ft_memalloc(size_t size);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(uintmax_t n, int base);
+char				*ft_itoa_base(intmax_t n, intmax_t base);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);

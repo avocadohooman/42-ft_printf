@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/10 14:12:42 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/12 14:20:01 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,19 @@ void	length(t_menu *menu, const char *fmt)
 {
 	if (fmt[menu->i] == 'l')
 	{
-		menu->length = l;
-		(fmt[menu->i + 1] == 'l') ? menu->length = ll : 0;
+		if (fmt[menu->i + 1] == 'l')
+			menu->length = ll;
+		else if (fmt[menu->i - 1] != 'l')
+			menu->length = l;
 	}
-	(fmt[menu->i] == 'L') ? menu->length = L : 0;
 	if (fmt[menu->i] == 'h')
 	{
-		menu->length = h;
-		(fmt[menu->i + 1] == 'h') ? menu->length = hh : 0;
+		if (fmt[menu->i + 1] == 'h')
+			menu->length = hh;
+		else if (fmt[menu->i - 1] != 'h')
+			menu->length = h;		
 	} 
+	(fmt[menu->i] == 'L') ? menu->length = L : 0;
 	while (ft_strchr(LENGTH, fmt[menu->i]))
 		menu->i++;
 }
