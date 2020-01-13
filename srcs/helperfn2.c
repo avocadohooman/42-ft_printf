@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/12 18:10:42 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 11:08:54 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 char	*zero_space(t_menu *menu, int nb, char *str)
 {
+	char	*joint;
+
+	joint = NULL;
 	if (menu->zero == 1 && menu->width > 0 && !menu->sign && !menu->precision)
 	{
 		if (menu->plus && !menu->sign)
-			return (ft_strjoin("+", ft_strjoin(ft_strcnew(nb, menu->padding), str)));
+			joint = converter_r(str, nb, menu, '0');
 		else if ((!menu->plus && menu->sign) || (menu->plus && menu->sign))
 		{
 			if (!menu->plus && menu->sign)
-				return (ft_strjoin("-", ft_strjoin(ft_strcnew(nb, menu->padding), str)));
-			return (ft_strjoin("-", ft_strjoin(ft_strcnew(nb + 1, menu->padding), str)));
+				joint = converter_r(str, nb, menu, '0');
+			//return (ft_strjoin("-", ft_strjoin(ft_strcnew(nb + 1, menu->padding), str)));
+			joint = converter_r(str, nb, menu, '0');
 		}
-		return (ft_strjoin(ft_strcnew(nb, menu->padding), str));
+		//return (ft_strjoin(ft_strcnew(nb, menu->padding), str));
+		joint = converter_r(str, nb, menu, '0');
 	}
-	else 
+	//free(str);
+	/*else 
 	{
 		if (menu->plus == 1 && !menu->sign)
 			return (ft_strjoin(ft_strcnew(nb, menu->padding), ft_strjoin("+", str)));
@@ -37,6 +43,6 @@ char	*zero_space(t_menu *menu, int nb, char *str)
 			return (ft_strjoin(ft_strcnew(nb + 1, menu->padding),ft_strjoin("-", str)));
 		}
 		return (ft_strjoin(ft_strcnew(nb, menu->padding), str));
-	}
+	}*/
+	return (joint);
 }
-

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/12 18:46:57 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 11:02:12 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,23 +196,23 @@ void	id(void)
 	printf("'%-+10.5d'\n", i);
 
 	ft_printf("\n****** TEST #14 ******\n\n");
-	ft_printf("'%-010.5lld'\n'%-10.5d'\n", lli_n, i_n);
-	printf("'%-010.5lld'\n'%-10.5d'\n", lli_n, i_n);
-
-	ft_printf("\n****** TEST #15 ******\n\n");
 	ft_printf("'%-+60.20d'\n", i_n);
 	printf("'%-+60.20d'\n", i_n);
 
-	ft_printf("\n****** TEST #16 ******\n\n");
+	ft_printf("\n****** TEST #15 ******\n\n");
 	ft_printf("'%-10.5d'\n", i);
 	printf("'%-10.5d'\n", i);
+
+	ft_printf("\n****** TEST #16 ******\n\n");
+	ft_printf("'%-010.5lld'\n'%-10.5d'\n", lli_n, i_n);
+	printf("'%-010.5lld'\n'%-10.5d'\n", lli_n, i_n);
 	
 	//LEFT ALIGNED TEST END
 	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
 	
 
 	//RIGHT ALIGNED TESTS START
-	/*
+	
 	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
 
 	ft_printf("\n****** TEST #1 ******\n\n");
@@ -268,8 +268,8 @@ void	id(void)
 	printf("'%+0*.5d'\n", 10, i);
 
 	ft_printf("\n****** TEST #14 ******\n\n");
-	ft_printf("'%010d'\n'%-010d'\n", i, i);
 	printf("'%010d'\n'%-010d'\n", i, i);
+	ft_printf("'%010d'\n'%-010d'\n", i, i);
 
 	ft_printf("\n****** TEST #15 ******\n\n");
 	ft_printf("'%010d'\n'%-+010.5d'\n", i, i);
@@ -285,7 +285,7 @@ void	id(void)
 
 	//RIGHT ALIGNED TESTS END
 	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
-	*/
+	
 }
 
 int main()

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/12 18:31:26 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 09:36:58 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ void	widthstar(t_menu *menu, const char *fmt, va_list arg);
 char	*pre_converter(char *str, size_t nb, t_menu *menu, char , int check);
 char	*conv_space(char *str, t_menu *menu);
 char	*converter_l(char *str, size_t nb, t_menu *menu, char c);
+char	*converter_r(char *str, size_t nb, t_menu *menu, char c);
+
 
 //helperfn.c functions
 
