@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/13 09:36:58 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 17:15:07 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ typedef struct	s_menu
 	int			i;
 	int			len;
 
+
 	int			plus;			// +
 	int			minus;			// - left aligned
 	int			hash;			//	
 	int			space;			// spaces
 	int			zero;			// zeros instead of spaces
+	int			nb;				// tota length
 	char		padding;		// 0 or ' '
 	
 	int			width;			// padding 0 - 9
@@ -65,6 +67,7 @@ typedef struct	s_menu
 	int			precisionft;
 
 	int			sign;
+	int			conv;
 
 }				t_menu;
 
@@ -88,8 +91,6 @@ void	conversion_distributor(t_menu *menu, char c, va_list arg);
 //modifier_setup.c functions
 
 void	modifier(t_menu *menu, const char* fmt, va_list arg);
-void	flags(t_menu *menu, const char *fmt);
-void	width(t_menu *menu, const char* fmt, va_list arg);
 
 //c_conversion.c functions
 
@@ -99,7 +100,6 @@ void	conv_perc(t_menu *menu);
 //s_conversion.c functions
 
 void	conv_s(t_menu *menu, va_list arg);
-char	*conv_s_precision(char *str, int n);
 
 //p_conversion.c functions
 
@@ -108,23 +108,25 @@ void	conv_p(t_menu *menu, va_list arg);
 ////id_conversion.c functions
 
 void	conv_id(t_menu *menu, va_list arg);
-char	*length_check_int(intmax_t n, t_menu *menu, va_list arg);
-char	*leftaligned(t_menu *menu, va_list arg, char *str);
-char	*rightaligned(t_menu *menu, va_list arg, char *str);
 
-//helperfn.c functions
+////o_conversion.c functions
+void	conv_o(t_menu *menu, va_list arg);
+
+////u_conversion.c functions
+void	conv_u(t_menu *menu, va_list arg);
+
+//helper_print.c functions
 
 void	printspace(t_menu *menu, int nb);
 void	printzero(t_menu *menu, int nb);
 void	widthstar(t_menu *menu, const char *fmt, va_list arg);
-char	*pre_converter(char *str, size_t nb, t_menu *menu, char , int check);
-char	*conv_space(char *str, t_menu *menu);
+
+//helper_converter.c functions
+
+char	*pre_converter(char *str, t_menu *menu, char , int check);
 char	*converter_l(char *str, size_t nb, t_menu *menu, char c);
 char	*converter_r(char *str, size_t nb, t_menu *menu, char c);
-
-
-//helperfn.c functions
-
-char	*zero_space(t_menu *menu, int nb, char *str);
+char	*leftaligned(t_menu *menu, va_list arg, char *str);
+char	*rightaligned(t_menu *menu, va_list arg, char *str);
 
 #endif

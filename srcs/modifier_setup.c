@@ -6,13 +6,13 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/12 14:20:01 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 16:55:16 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	flags(t_menu *menu, const char *fmt)
+static	void	flags(t_menu *menu, const char *fmt)
 {
 	while (ft_strchr("#0-+ ", fmt[menu->i]))
 	{
@@ -32,7 +32,7 @@ void	flags(t_menu *menu, const char *fmt)
 		menu->space = 0;
 }
 
-void	width(t_menu *menu, const char	*fmt, va_list arg)
+static	void	width(t_menu *menu, const char	*fmt, va_list arg)
 {
 	widthstar(menu, fmt, arg);
 	if (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
@@ -41,7 +41,7 @@ void	width(t_menu *menu, const char	*fmt, va_list arg)
 		menu->i++;
 }
 
-void	precision(t_menu *menu, const char *fmt)
+static	void	precision(t_menu *menu, const char *fmt)
 {
 	if (fmt[menu->i] == '.') 
 	{
@@ -59,7 +59,7 @@ void	precision(t_menu *menu, const char *fmt)
 		menu->i++;
 }
 
-void	length(t_menu *menu, const char *fmt)
+static	void	length(t_menu *menu, const char *fmt)
 {
 	if (fmt[menu->i] == 'l')
 	{

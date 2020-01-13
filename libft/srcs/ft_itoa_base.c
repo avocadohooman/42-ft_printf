@@ -5,84 +5,75 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 15:22:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/12 15:37:12 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/02 11:22:49 by vkuokka           #+#    #+#             */
+/*   Updated: 2020/01/13 16:47:06 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-# define abs(v) (v) < 0 ? (-v) : (v)
 
-
-static	void ib(intmax_t n, intmax_t b, char *res, int *p)
+static int	length(unsigned long long value, int base)
 {
-	char *str = "0123456789abcdef";
-
-	if (n >= b || n <= -b)
-		ib (n / b, b, res, p);
-	res[(*p)++] = str[abs(n % b)];
-}
-
-char	*ft_itoa_base(intmax_t	n, intmax_t base)
-{
-	char	*res;
-	int		p;
 	int		len;
 
-	p = 0;
-	len = ft_count_digits(n, base);
-	if (base < 2 || base > 16 || !(res = malloc(sizeof(char) * len + 1)))
-		return NULL;
-	if (base == 10 && n < 0)
-		res[p++] = '-';
-	ib (n, base, res, &p);
-	res[p] = '\0';
-	return (res);
+	len = 1;
+	if (value < 0)
+		len++;
+	while (value /= base)
+		len++;
+	return (len);
 }
 
-/*char	*ft_itoa_base(uintmax_t value, uintmax_t base)
+static char	*reverse(char *str)
 {
-	char				*s;
-	unsigned long long	n;
-	int					i;
-
-	i = 1;
-	n = value;
-	while ((n /= base) >= 1)
-		i++;
-	s = (char*)malloc(sizeof(char) * (i + 1));
-	s[i] = '\0';
-	n = value;
-	while (i-- > 0)
-	{
-		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'a' - 10;
-		n /= base;
-	}
-	return (s);
-}
-*/
-
-/*
-char	*ft_itoa_base(uintmax_t  n, int base)
-{
-	char	*str;
+	char	*rev;
 	int		i;
-	int		len;
+	int		j;
 
-	if (base < 2 || base > 16 || (base != 10 && n < 0))
+	if (!(rev = ft_strnew(ft_strlen(str))))
 		return (NULL);
-	len = ft_count_digits(n, base);
-	str = (char*)malloc(sizeof(*str) * (len + 1));
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (str[i])
+	{
+		rev[i] = str[j];
+		i++;
+		j--;
+	}
+	free(str);
+	return (rev);
+}
+
+static char	alpha(unsigned long long set)
+{
+	char	*alpha;
+
+	alpha = "abcdef";
+	return (alpha[set % 10]);
+}
+
+char		*ft_itoa_base(unsigned long long value, int base)
+{
+	char					*str;
+	unsigned long long		i;
+	unsigned long long		set;
+	unsigned long long		len;
+
+	if (base < 2 || base > 16)
+		return (NULL);
+	len = length(value, base);
+	if (!(str = ft_strnew(len)))
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		if (base > 10 && (n % base >= 10))
-			str[i++] = (n % base) - 10 + 'a';
+		set = value % base;
+		if (set > 9)
+			str[i] = alpha(set);
 		else
-			str[i++] = (n % base) + '0';
-		n /= base;
+			str[i] = set + '0';
+		value /= base;
+		i++;
 	}
-	str[i] = '\0';
-	return (ft_strrev(str));
+	return (reverse(str));
 }
-*/

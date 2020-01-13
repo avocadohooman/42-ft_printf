@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 14:38:55 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/12 15:37:32 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 16:33:31 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char				*ft_strrev(char *str);
 void				ft_memdel(void **ap);
 void				*ft_memalloc(size_t size);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(intmax_t n, intmax_t base);
+char				*ft_itoa_base(unsigned long long value, int base);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);

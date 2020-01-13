@@ -6,13 +6,13 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 11:21:38 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/11 17:44:39 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/13 12:12:50 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	*conv_s_precision(char *str, int n)
+static	char	*conv_s_precision(char *str, int n)
 {
 	char *tmp;
 
