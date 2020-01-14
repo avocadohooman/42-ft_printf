@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 17:02:11 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/13 17:20:05 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/14 15:17:49 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ void	conv_u(t_menu *menu, va_list arg)
 
 	n = 0;
 	str = length_check_u(n, menu, arg);
-	if (menu->precision > 0)
-	{
-		menu->nb = menu->precision - ft_strlen(str);
+	menu->nb = menu->precision - ft_strlen(str);
+	if (menu->precision > 0 && menu->nb > 0)
 		str = pre_converter(str, menu, '0', 1);
-	}
 	if (menu->minus == 1)
 		str = leftaligned(menu, arg, str);
 	else if (menu->minus == 0)

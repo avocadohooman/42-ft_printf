@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/13 17:15:07 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/14 17:11:54 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ typedef struct	s_menu
 
 	int			sign;
 	int			conv;
+	int			conv2;
+	int			x;
 
 }				t_menu;
 
@@ -105,15 +107,18 @@ void	conv_s(t_menu *menu, va_list arg);
 
 void	conv_p(t_menu *menu, va_list arg);
 
-////id_conversion.c functions
+//id_conversion.c functions
 
 void	conv_id(t_menu *menu, va_list arg);
 
-////o_conversion.c functions
+//o_conversion.c functions
 void	conv_o(t_menu *menu, va_list arg);
 
-////u_conversion.c functions
+//u_conversion.c functions
 void	conv_u(t_menu *menu, va_list arg);
+
+//xX_conversion.c functions
+void	conv_x(t_menu *menu, va_list arg);
 
 //helper_print.c functions
 
@@ -123,10 +128,16 @@ void	widthstar(t_menu *menu, const char *fmt, va_list arg);
 
 //helper_converter.c functions
 
-char	*pre_converter(char *str, t_menu *menu, char , int check);
+char	*pre_converter(char *str, t_menu *menu, char c, int check);
 char	*converter_l(char *str, size_t nb, t_menu *menu, char c);
 char	*converter_r(char *str, size_t nb, t_menu *menu, char c);
 char	*leftaligned(t_menu *menu, va_list arg, char *str);
 char	*rightaligned(t_menu *menu, va_list arg, char *str);
+
+//helper_swap.c functions
+char	*swap_plus_minus(char *joint, char c, int i);
+char	*swap_zero_x_l(char *joint, char c, int i);
+char	*swap_zero_x_r(char *joint, char c, int i);
+
 
 #endif

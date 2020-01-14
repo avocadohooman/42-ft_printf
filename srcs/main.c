@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/13 17:19:00 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/14 17:33:41 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	p(void)
 
 	pointer = &test;
 	//printf("0x%s\n", test = ft_itoa_base((unsigned long long)pointer, 16));
-	/*
+	
 	ft_printf("\n****** TEST #1 ******\n\n");
 	ft_printf("'%p'\n", pointer);
 	printf("'%p'\n", pointer);
@@ -121,7 +121,7 @@ void	p(void)
 
 	//printf("PRINTED: %d\n", ft_printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
 	//printf("PRINTED: %d\n", printf("'UNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
-	*/
+	
 }
 
 void	id(void)
@@ -129,7 +129,7 @@ void	id(void)
 	/*
 	** ****************** TESTING ENVIRONMENT WITH %i and %d ******************
 	*/
-
+	
 	ft_printf("\n******************  TESTING ENVIRONMENT WITH %%i AND %%d ******************\n\n");
 
 	long double d = 3.1415926535;
@@ -144,7 +144,7 @@ void	id(void)
 	
 	//LEFT ALIGNED TESTS START
 	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
-	/*
+	
 	ft_printf("\n****** TEST #1 ******\n\n");
 	ft_printf("'%-+i'\n'%-+lli'\n", i, lli);
 	printf("'%-+i'\n'%-+lli'\n", i, lli);
@@ -217,13 +217,17 @@ void	id(void)
 	ft_printf("'%-+015.10hi.'\n", (short int)92);
 	printf("'%-+015.10hi.'\n", (short int)92);
 
-	*/
+	ft_printf("\n****** TEST #19 ******\n\n");
+	printf("'%-020.4lli'\n'%-10.5i'\n", lli_n, i_n);
+	ft_printf("'%-020.4lli'\n'%-10.5i'\n", lli_n, i_n);
+	
+	
 	//LEFT ALIGNED TEST END
 	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
 	
 
 	//RIGHT ALIGNED TESTS START
-	/*
+	
 	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
 	
 	ft_printf("'%ld'\n", -42);
@@ -300,10 +304,11 @@ void	id(void)
 	ft_printf("\n****** TEST #18 ******\n\n");
 	ft_printf("'%+015.10hi.'\n", (short int)92);
 	printf("'%+015.10hi.'\n", (short int)92);
-	*/
+	
 
 	//RIGHT ALIGNED TESTS END
 	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
+	
 }
 
 void	o(void)
@@ -311,9 +316,9 @@ void	o(void)
 	/*
 	** ****************** TESTING ENVIRONMENT WITH %o ******************
 	*/
-
+	
 	ft_printf("\n******************  TESTING ENVIRONMENT WITH %%o ******************\n\n");
-	/*
+	
 	//LEFT ALIGNED TESTS START
 	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
 	
@@ -415,11 +420,11 @@ void	o(void)
 	ft_printf("\n****** TEST #20 ******\n\n");
 	ft_printf("'%-+050.0o'\n'%-+050ll.0o'\n", i, lli);
 	printf("'%-+050.0o'\n'%-+050ll.0o'\n", i, lli);
-	*/
+	
 	//LEFT ALIGNED TEST END
 	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
 	
-	/*
+	
 	//RIGHT ALIGNED TESTS START
 	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
 
@@ -504,7 +509,7 @@ void	o(void)
 	ft_printf("\n****** TEST #20 ******\n\n");
 	ft_printf("'%+050.0o'\n'%+050ll.0o'\n", i, lli);
 	printf("'%+050.0o'\n'%+050ll.0o'\n", i, lli);
-	*/
+	
 	
 	//RIGHT ALIGNED TESTS END
 	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
@@ -593,8 +598,8 @@ void	u(void)
 	printf("'%-10.5u'\n",u);
 
 	ft_printf("\n****** TEST #16 ******\n\n");
-	printf("'%-010.5llu'\n'%-10.5u'\n", llu_n, u_n);
-	ft_printf("'%-010.5llu'\n'%-10.5u'\n", llu_n, u_n);
+	printf("'%-020.5llu'\n'%-10.5u'\n", llu_n, u_n);
+	ft_printf("'%-020.5llu'\n'%-10.5u'\n", llu_n, u_n);
 
 	ft_printf("\n****** TEST #17 ******\n\n");
 	ft_printf("'%-llu'\n'%-u'\n", llu, u);
@@ -610,90 +615,295 @@ void	u(void)
 	
 
 	//RIGHT ALIGNED TESTS START
-	/*
+	
 	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
 	
 	ft_printf("'%ld'\n", -42);
 	printf("'%ld'\n", -42);
 
 	ft_printf("\n****** TEST #1 ******\n\n");
-	ft_printf("'%+ i'\n'%+ lli'\n", i, lli);
-	printf("'%+ i'\n'%+ lli'\n", i, lli);
+	ft_printf("'%+ u'\n'%+ llu'\n", u, llu);
+	printf("'%+ u'\n'%+ llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #2 ******\n\n");
-	ft_printf("'% i'\n'% lli'\n", i_n, lli_n);
-	printf("'% i'\n'% lli'\n", i_n, lli_n);
+	ft_printf("'% u'\n'% llu'\n", u_n, llu_n);
+	printf("'% u'\n'% llu'\n", u_n, llu_n);
 
 	ft_printf("\n****** TEST #3 ******\n\n");
-	ft_printf("'%10 i'\n'%10 lli'\n", i, lli);
-	printf("'%10 i'\n'%10 lli'\n", i, lli);
+	ft_printf("'%10 u'\n'%10 llu'\n", u, llu);
+	printf("'%10 u'\n'%10 llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #4 ******\n\n");
-	ft_printf("'% i'\n'% lli'\n", i, lli);
-	printf("'% i'\n'% lli'\n", i, lli);
+	ft_printf("'% u'\n'% llu'\n", u, llu);
+	printf("'% u'\n'% llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #5 ******\n\n");
-	ft_printf("'% .5i'\n'% .10lli'\n", i, lli);
-	printf("'% .5i'\n'% .10lli'\n", i, lli);
+	ft_printf("'% .5u'\n'% .10llu'\n", u, llu);
+	printf("'% .5u'\n'% .10llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #6 ******\n\n");
-	ft_printf("'% .i'\n'% .lli'\n", i, lli);
-	printf("'% .i'\n'% .lli'\n", i, lli);
+	ft_printf("'% .u'\n'% .llu'\n", u, llu);
+	printf("'% .u'\n'% .llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #7 ******\n\n");
-	ft_printf("'% .0i'\n'% .0lli'\n", i, lli);
-	printf("'% .0i'\n'% .0lli'\n", i, lli);
+	ft_printf("'% .0u'\n'% .0llu'\n", u, llu);
+	printf("'% .0u'\n'% .0llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #8 ******\n\n");
-	ft_printf("'% i'\n'% lli'\n", i_n, lli_n);
-	printf("'% i'\n'% lli'\n", i_n, lli_n);
+	ft_printf("'% u'\n'% llu'\n", u_n, llu_n);
+	printf("'% u'\n'% llu'\n", u_n, llu_n);
 
 	ft_printf("\n****** TEST #9 ******\n\n");
-	ft_printf("'%+.5d'\n'%+.5lld'\n", i, lli);
-	printf("'%+.5d'\n'%+.5lld'\n", i, lli);
+	ft_printf("'%+.5u'\n'%+.5llu'\n", u, llu);
+	printf("'%+.5u'\n'%+.5llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #10 ******\n\n");
-	ft_printf("'%+010.5d'\n'%+010.5lld'\n", i, lli);
-	printf("'%+010.5d'\n'%+010.5lld'\n", i, lli);
+	ft_printf("'%+010.5u'\n'%+010.5llu'\n", u, llu);
+	printf("'%+010.5u'\n'%+010.5llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #11 ******\n\n");
-	ft_printf("'%+010.5d'\n'%+010.5lld'\n", i_n, lli_n);
-	printf("'%+010.5d'\n'%+010.5lld'\n", i_n, lli_n);
+	ft_printf("'%+010.5u'\n'%+010.5llu'\n", u_n, llu_n);
+	printf("'%+010.5u'\n'%+010.5llu'\n", u_n, llu_n);
 	
 	ft_printf("\n****** TEST #12 ******\n\n");
-	ft_printf("'%+010d'\n'%+010lld'\n", i, lli);
-	printf("'%+010d'\n'%+010lld'\n", i, lli);
+	ft_printf("'%+010u'\n'%+010llu'\n", u, llu);
+	printf("'%+010u'\n'%+010llu'\n", u, llu);
 
 	ft_printf("\n****** TEST #13 ******\n\n");
-	ft_printf("'%+0*.5d'\n", 10, i);
-	printf("'%+0*.5d'\n", 10, i);
+	ft_printf("'%+0*.5u'\n", 10, u);
+	printf("'%+0*.5u'\n", 10, u);
 
 	ft_printf("\n****** TEST #14 ******\n\n");
-	ft_printf("'%010d'\n'%-010d'\n", i, i);
-	printf("'%010d'\n'%-010d'\n", i, i);
+	ft_printf("'%010u'\n'%-010u'\n", u, u);
+	printf("'%010u'\n'%-010u'\n", u, u);
 
 	ft_printf("\n****** TEST #15 ******\n\n");
-	ft_printf("'%010d'\n'%-+010.5d'\n", i, i);
-	printf("'%010d'\n'%-+010.5d'\n", i, i);
+	ft_printf("'%010u'\n'%-+010.5u'\n", u, u);
+	printf("'%010u'\n'%-+010.5u'\n", u, u);
 
 	ft_printf("\n****** TEST #16 ******\n\n");
-	ft_printf("'%lld'\n'%d'\n", lli, i);
-	printf("'%lld'\n'%d'\n", lli, i);
+	ft_printf("'%llu'\n'%u'\n", llu, u);
+	printf("'%llu'\n'%u'\n", llu, u);
 
 	ft_printf("\n****** TEST #17 ******\n\n");
-	ft_printf("'%+025.5d'\n", i);
-	printf("'%+025.5d'\n", i);
+	ft_printf("'%+025.5u'\n", u);
+	printf("'%+025.5u'\n", u);
 
 	ft_printf("\n****** TEST #18 ******\n\n");
-	ft_printf("'%+015.10hi.'\n", (short int)92);
-	printf("'%+015.10hi.'\n", (short int)92);
-	*/
+	ft_printf("'%+015.10hu.'\n", (short int)92);
+	printf("'%+015.10hu.'\n", (short int)92);
+		
 
 	//RIGHT ALIGNED TESTS END
 	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
 	
 }
 
+void	x(void)
+{
+		/*
+	** ****************** TESTING ENVIRONMENT WITH %x ******************
+	*/
+
+	ft_printf("\n******************  TESTING ENVIRONMENT WITH %%x ******************\n\n");
+	
+	//LEFT ALIGNED TESTS START
+	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
+	
+	unsigned long long int lli_m = 18446744073709551615;
+	unsigned long long int lli_m_n = -18446744073709551615;
+	int	i = 3;
+	unsigned long long int lli = 6964321;
+	unsigned long long int lli_n = -55165;
+	int	i_n = -3;
+
+	ft_printf("\n****** TEST #1 ******\n\n");
+	ft_printf("'%-x'\n'%-x'\n", i, i_n);
+	printf("'%-x'\n'%-x'\n", i, i_n);
+	
+	ft_printf("\n****** TEST #2 ******\n\n");
+	ft_printf("'%-#x'\n'%-#x'\n", i, i_n);
+	printf("'%-#x'\n'%-#x'\n", i, i_n);
+
+	ft_printf("\n****** TEST #3 ******\n\n");
+	ft_printf("'%-#x'\n'%-#llx'\n", i, lli);
+	printf("'%-#x'\n'%-#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #4 ******\n\n");
+	ft_printf("'%-#x'\n'%-#llx'\n", i, lli);
+	printf("'%-#x'\n'%-#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #5 ******\n\n");
+	ft_printf("'%-+#x'\n'%-+#llx'\n", i_n, lli_m_n);
+	printf("'%-+#x'\n'%-+#llx'\n", i_n, lli_m_n);
+
+	ft_printf("\n****** TEST #6 ******\n\n");
+	ft_printf("'%- x'\n'%- llx'\n", i_n, lli);
+	printf("'%- x'\n'%- llx'\n", i_n, lli);
+	
+	ft_printf("\n****** TEST #6 ******\n\n");
+	ft_printf("'%x'\n'%#llx'\n", i, lli);
+	printf("'%x'\n'%#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #7 ******\n\n");
+	ft_printf("'%+#.30x'\n'%+#ll.30x'\n", i, lli);
+	printf("'%+#.30x'\n'%+#ll.30x'\n", i, lli);
+	
+	ft_printf("\n****** TEST #8 ******\n\n");
+	ft_printf("'%+.30x'\n'%+ll.30x'\n", i, lli);
+	printf("'%+.30x'\n'%+ll.30x'\n", i, lli);
+
+	ft_printf("\n****** TEST #8.1 ******\n\n");
+	ft_printf("'%+#50.30x'\n'%+#50.30llx'\n", i, lli);
+	printf("'%+#50.30x'\n'%+#50.30llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #9 ******\n\n");
+	ft_printf("'%+50.30x'\n'%+50.30llx'\n", i, lli);
+	printf("'%+50.30x'\n'%+50.30llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #10 ******\n\n");
+	ft_printf("'%-+#50.30X'\n'%-+#50.30llX'\n", i, lli);
+	printf("'%-+#50.30X'\n'%-+#50.30llX'\n", i, lli);
+	
+	ft_printf("\n****** TEST #10 ******\n\n");
+	ft_printf("'%-+50.30X'\n'%-+50.30llX'\n", i, lli);	
+	printf("'%-+50.30X'\n'%-+50.30llX'\n", i, lli);	
+
+	ft_printf("\n****** TEST #11 ******\n\n");
+	ft_printf("'%-+#050.30X'\n'%-+#050.30llX'\n", i, lli);
+	printf("'%-+#050.30X'\n'%-+#050.30llX'\n", i, lli);
+
+	ft_printf("\n****** TEST #12 ******\n\n");
+	ft_printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);
+	printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);
+
+	ft_printf("\n****** TEST #13 ******\n\n");
+	ft_printf("'%-+#050.30X'\n'%-+#050.30llX'\n", i, lli);
+	printf("'%-+#050.30X'\n'%-+#050.30llX'\n", i, lli);
+	
+	ft_printf("\n****** TEST #14 ******\n\n");
+	ft_printf("'%-+050.30X'\n'%-+050.30llX'\n", i, lli);	
+	printf("'%-+050.30X'\n'%-+050.30llX'\n", i, lli);	
+
+	ft_printf("\n****** TEST #15 ******\n\n");
+	ft_printf("'%-+#050x'\n'%-+#050llx'\n", i, lli);
+	printf("'%-+#050x'\n'%-+#050llx'\n", i, lli);
+	
+	ft_printf("\n****** TEST #16 ******\n\n");
+	ft_printf("'%-+050x'\n'%-+050llx'\n", i, lli);
+	printf("'%-+050x'\n'%-+050llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #17 ******\n\n");
+	ft_printf("'%-+#050x'\n'%-+#050llx'\n", i, lli);
+	printf("'%-+#050x'\n'%-+#050llx'\n", i, lli);
+	
+	ft_printf("\n****** TEST #18 ******\n\n");
+	ft_printf("'%-+050x'\n'%-+050llx'\n", i, lli);
+	printf("'%-+050x'\n'%-+050llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #19 ******\n\n");
+	ft_printf("'%-+050.x'\n'%-+050ll.x'\n", i, lli);
+	printf("'%-+050.x'\n'%-+050ll.x'\n", i, lli);
+
+	ft_printf("\n****** TEST #20 ******\n\n");
+	ft_printf("'%-+050.0x'\n'%-+050ll.0x'\n", i, lli);
+	printf("'%-+050.0x'\n'%-+050ll.0x'\n", i, lli);
+
+	
+	//LEFT ALIGNED TEST END
+	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
+	
+	
+	//RIGHT ALIGNED TESTS START
+	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
+
+	ft_printf("\n****** TEST #1 ******\n\n");
+	ft_printf("'%x'\n'%x'\n", i, i_n);
+	printf("'%x'\n'%x'\n", i, i_n);
+	
+	ft_printf("\n****** TEST #2 ******\n\n");
+	ft_printf("'%#x'\n'%#x'\n", i, i_n);
+	printf("'%#x'\n'%#x'\n", i, i_n);
+
+
+	ft_printf("\n****** TEST #3 ******\n\n");
+	ft_printf("'%#x'\n'%#llx'\n", i, lli);
+	printf("'%#x'\n'%#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #4 ******\n\n");
+	ft_printf("'%#x'\n'%#llx'\n", i, lli);
+	printf("'%#x'\n'%#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #5 ******\n\n");
+	ft_printf("'%+#x'\n'%+#llx'\n", i_n, lli);
+	printf("'%+#x'\n'%+#llx'\n", i_n, lli);
+
+	ft_printf("\n****** TEST #6 ******\n\n");
+	ft_printf("'% x'\n'% llx'\n", i_n, lli);
+	printf("'% x'\n'% llx'\n", i_n, lli);
+	
+	ft_printf("\n****** TEST #6 ******\n\n");
+	ft_printf("'%x'\n'%#llx'\n", i, lli);
+	printf("'%x'\n'%#llx'\n", i, lli);
+
+	ft_printf("\n****** TEST #7 ******\n\n");
+	ft_printf("'%+#.30X'\n'%+#ll.30X'\n", i, lli);
+	printf("'%+#.30X'\n'%+#ll.30X'\n", i, lli);
+	
+	ft_printf("\n****** TEST #8 ******\n\n");
+	ft_printf("'%+.30X'\n'%+ll.30X'\n", i, lli);
+	printf("'%+.30X'\n'%+ll.30X'\n", i, lli);
+
+	ft_printf("\n****** TEST #8 ******\n\n");
+	ft_printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+	printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+	
+	ft_printf("\n****** TEST #9 ******\n\n");
+	ft_printf("'%+50.30X'\n'%+50.30llX'\n", i, lli);
+	printf("'%+50.30X'\n'%+50.30llX'\n", i, lli);
+
+	ft_printf("\n****** TEST #10 ******\n\n");
+	ft_printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+	printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+	
+	ft_printf("\n****** TEST #10 ******\n\n");
+	ft_printf("'%+50.30X'\n'%+50.30llX'\n", i, lli);	
+	printf("'%+50.30X'\n'%+50.30llX'\n", i, lli);	
+
+	ft_printf("\n****** TEST #11 ******\n\n");
+	ft_printf("'%+#050.30X'\n'%+#050.30llX'\n", i, lli);
+	printf("'%+#050.30X'\n'%+#050.30llX'\n", i, lli);
+
+	ft_printf("\n****** TEST #12 ******\n\n");
+	ft_printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);
+	printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);
+
+	ft_printf("\n****** TEST #13 ******\n\n");
+	ft_printf("'%+#050.30X'\n'%+#050.30llX'\n", i, lli);
+	printf("'%+#050.30X'\n'%+#050.30llX'\n", i, lli);
+	
+	ft_printf("\n****** TEST #14 ******\n\n");
+	ft_printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);	
+	printf("'%+050.30X'\n'%+050.30llX'\n", i, lli);	
+
+	ft_printf("\n****** TEST #15 ******\n\n");
+	ft_printf("'%+#050X'\n'%+#050llX'\n", i, lli);
+	printf("'%+#050X'\n'%+#050llX'\n", i, lli);
+
+
+	ft_printf("\n****** TEST #19 ******\n\n");
+	ft_printf("'%-+050.X'\n'%-+050ll.X'\n", i, lli);
+	printf("'%-+050.X'\n'%-+050ll.X'\n", i, lli);
+
+	ft_printf("\n****** TEST #20 ******\n\n");
+	ft_printf("'%+050.0X'\n'%+050ll.0X'\n", i, lli);
+	printf("'%+050.0X'\n'%+050ll.0o'\n", i, lli);
+
+	ft_printf("\n****** TEST #21 ******\n\n");
+	ft_printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+	printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
+
+}
 
 int main()
 {
@@ -701,15 +911,15 @@ int main()
 	** ****************** Testing ft_printf ******************
 	*/
 
-	//simple();
-	//c();
-	//s();
-	//p();
-	//id();
-	//o();
+	simple();
+	c();
+	s();
+	p();
+	id();
+	o();
 	u();
-	//x();
+	x();
 
-	//while (1);
+	while (1);
 	return (0);
 }

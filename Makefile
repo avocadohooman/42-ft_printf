@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/13 17:13:27 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/14 15:59:14 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FLAGS = -Wall -Wextra -Werror
 SRCS1 = ./srcs/main.c ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
 		./srcs/modifier_setup.c ./srcs/c_conversion.c ./srcs/helper_print.c \
 		./srcs/s_conversion.c ./srcs/p_conversion.c ./srcs/id_conversion.c \
-		./srcs/helper_converter.c ./srcs/o_conversion.c ./srcs/u_conversion.c
+		./srcs/helper_converter.c ./srcs/o_conversion.c ./srcs/u_conversion.c \
+		./srcs/xX_conversion.c ./srcs/helper_swap.c 
 
 OBJS = $(subst .c,.o,$(subst srcs/,,$(SRCS1)))
 
