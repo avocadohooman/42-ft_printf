@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/14 17:30:32 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/14 17:39:42 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ char	*pre_converter(char *str, t_menu *menu, char c, int check)
 	if (check == 3)
 		if ((menu->plus && !menu->sign) || menu->sign)
 		{
-			if (menu->plus && !menu->sign)
-				joint = ft_strjoin("+", str);
-			else
-				joint = ft_strjoin("-", str);
+			(menu->plus && !menu->sign) ? joint = ft_strjoin("+", str) : 0;
+			(menu->sign) ? joint = ft_strjoin("-", str) : 0;
 		}
 	free(str);
 	return (joint);
