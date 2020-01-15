@@ -6,16 +6,17 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:43:04 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 10:29:02 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/15 18:31:29 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libft.h"
+#include <stdio.h>
 
-static long double     power(int n, int i)
+static long double     power(unsigned long long n, unsigned long long i)
 {
-	long		k;
+	long double	k;
 	long double	res;
 
 	res = n;
@@ -31,9 +32,9 @@ static long double     power(int n, int i)
 }
 
 // Reverses a string 'str' of length 'len' 
-static  void       reverse(char* str, int len) 
+static  void       reverse(char* str, unsigned long long len) 
 { 
-    int i = 0, j = len - 1, temp; 
+    unsigned long long i = 0, j = len - 1, temp; 
     while (i < j) { 
         temp = str[i]; 
         str[i] = str[j]; 
@@ -47,9 +48,9 @@ static  void       reverse(char* str, int len)
 // d is the number of digits required in the output.  
 // If d is more than the number of digits in x,  
 // then 0s are added at the beginning. 
-static  int         intToStr(int x, char str[], int d) 
+static  int         intToStr(unsigned long long x, char str[], unsigned long long d) 
 { 
-    int i = 0; 
+    unsigned long long i = 0; 
     while (x) { 
         str[i++] = (x % 10) + '0'; 
         x = x / 10; 
@@ -68,19 +69,24 @@ static  int         intToStr(int x, char str[], int d)
 // Converts a floating-point/double number to a string. 
 char                *ft_ftoa(long double n, int afterpoint) 
 { 
-    char *str;
+    char    *stri;
+    char    *strf;
+    char     *str = malloc(sizeof(char) * 4096);
+    
+    stri = ft_itoa((int) n);
 
-    str = malloc(sizeof(char) * 10000);
+    
     // Extract integer part 
     int ipart = (int)n; 
   
     // Extract floating part 
-    float fpart = n - (float)ipart; 
+    long double fpart = n - (long double)ipart; 
 
     // convert integer part to string 
-    int i = intToStr(ipart, str, 0); 
+    unsigned long long i = intToStr(ipart, str, 0); 
   
     // check for display option after point 
+   // printf("%.50Lf\n", fpart);
     if (afterpoint != 0) { 
         str[i] = '.'; // add dot 
   
@@ -88,7 +94,8 @@ char                *ft_ftoa(long double n, int afterpoint)
         // of points after dot. The third parameter  
         // is needed to handle cases like 233.007 
         fpart = fpart * power(10, afterpoint); 
-  
+        printf("%.50Lf\n", fpart);
+
         intToStr((int)fpart, str + i + 1, afterpoint); 
     } 
     return (str);

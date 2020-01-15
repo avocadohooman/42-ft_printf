@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 10:34:52 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/15 19:21:16 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -919,10 +919,10 @@ void	f(void)
 	//LEFT ALIGNED TESTS START
 	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
 
-	float f = 43242.32;
+	long double f = 432232342.324234235432424234543523334444;
 
-	ft_printf("'%f'\n", f);
-	printf("'%f'\n", f);
+	ft_printf("'%Lf'\n", f);
+	printf("'%.19Lf'\n", f);
 	
 	//LEFT ALIGNED TEST END
 	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
