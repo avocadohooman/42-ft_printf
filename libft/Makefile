@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 11:41:03 by vkuokka           #+#    #+#              #
-#    Updated: 2020/01/12 13:39:34 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/15 09:52:15 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS =	srcs/ft_bzero.c \
 		srcs/ft_strcmp.c \
 		srcs/ft_strncmp.c \
 		srcs/ft_atoi.c \
+		srcs/ft_ftoa.c \
 		srcs/ft_isalpha.c \
 		srcs/ft_isdigit.c \
 		srcs/ft_isalnum.c \
@@ -108,6 +109,7 @@ OBJ =	ft_bzero.o \
 		ft_strcmp.o \
 		ft_strncmp.o \
 		ft_atoi.o \
+		ft_ftoa.o \
 		ft_isalpha.o \
 		ft_isdigit.o \
 		ft_isalnum.o \

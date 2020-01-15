@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/14 17:11:54 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/15 09:57:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,11 @@ void	conv_o(t_menu *menu, va_list arg);
 //u_conversion.c functions
 void	conv_u(t_menu *menu, va_list arg);
 
-//xX_conversion.c functions
+//x_conversion.c functions
 void	conv_x(t_menu *menu, va_list arg);
+
+//x_conversion.c functions
+void	conv_f(t_menu *menu, va_list arg);
 
 //helper_print.c functions
 

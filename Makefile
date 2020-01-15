@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/14 17:42:33 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/15 09:53:04 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS1 = ./srcs/main.c ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
 		./srcs/modifier_setup.c ./srcs/c_conversion.c ./srcs/helper_print.c \
 		./srcs/s_conversion.c ./srcs/p_conversion.c ./srcs/id_conversion.c \
 		./srcs/helper_converter.c ./srcs/o_conversion.c ./srcs/u_conversion.c \
-		./srcs/x_conversion.c ./srcs/helper_swap.c 
+		./srcs/x_conversion.c ./srcs/helper_swap.c ./srcs/f_conversion.c
 
 OBJS = $(subst .c,.o,$(subst srcs/,,$(SRCS1)))
 

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/14 17:42:55 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/15 10:34:52 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,8 @@ void	p(void)
 	ft_printf("'%*20.4p'\n", 20, &a);
 	printf("'%*20.4p'\n", 20, &test);
 
-	//printf("PRINTED: %d\n", ft_printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
-	//printf("PRINTED: %d\n", printf("'UNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20s'\n", &test, str));
+	//printf("PRINTED: %d\n", ft_printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20p'\n", &test, &test));
+	//printf("PRINTED: %d\n", printf("'\nUNEDEFINED BHEAVIOUR PRECISION \n%20.30p'\n'%20p'\n", &test, &test));
 	
 }
 
@@ -701,7 +701,7 @@ void	u(void)
 
 void	x(void)
 {
-		/*
+	/*
 	** ****************** TESTING ENVIRONMENT WITH %x ******************
 	*/
 
@@ -903,6 +903,38 @@ void	x(void)
 	ft_printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
 	printf("'%+#50.30X'\n'%+#50.30llX'\n", i, lli);
 
+	//RIGHT ALIGNED TESTS END
+	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
+
+}
+
+void	f(void)
+{
+	/*
+	** ****************** TESTING ENVIRONMENT WITH %f ******************
+	*/
+
+	ft_printf("\n******************  TESTING ENVIRONMENT WITH %%f ******************\n\n");
+	
+	//LEFT ALIGNED TESTS START
+	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
+
+	float f = 43242.32;
+
+	ft_printf("'%f'\n", f);
+	printf("'%f'\n", f);
+	
+	//LEFT ALIGNED TEST END
+	ft_printf("\n******************  LEFT ALIGNED TESTS END ******************\n\n");
+	
+
+	/*
+	//RIGHT ALIGNED TESTS START
+	ft_printf("\n******************  RIGHT ALIGNED TESTS START ******************\n\n");
+
+	//RIGHT ALIGNED TESTS START
+	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
+	*/
 }
 
 int main()
@@ -911,15 +943,16 @@ int main()
 	** ****************** Testing ft_printf ******************
 	*/
 
-	simple();
-	c();
-	s();
-	p();
-	id();
-	o();
-	u();
-	x();
-
+	//simple();
+	//c();
+	//s();
+	//p();
+	//id();
+	//o();
+	//u();
+	//x();
+	f();
+	
 	//while (1);
 	return (0);
 }
