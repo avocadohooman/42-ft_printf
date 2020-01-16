@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/14 17:40:48 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:39:12 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*pre_converter(char *str, t_menu *menu, char c, int check)
 	tmp = NULL;
 	if (check == 0)
 	{
+		(str[0] == '0' && c == '0') ? joint = ft_strdup(str) : 0;
 		(str[0] != '0' && c == '0') ? joint = ft_strjoin("0", str) : 0;
 		(c == 'x') ? joint = ft_strjoin("0x", str) : 0;	
 		(c == 'X') ? joint = ft_strjoin("0X", str) : 0;	
@@ -75,7 +76,10 @@ char	*converter_r(char *str, size_t nb, t_menu *menu, char c)
 	free(tmp);
 	free(str);
 	if (menu->zero && menu->width && (menu->plus || menu->minus) 
-		&& !menu->precision && !menu->conv) // (!menu->sign && !menu->precision && !menu->plus && menu->minus)
+		&& !menu->precision && !menu->conv) 
+		joint = swap_plus_minus(joint, c, i);
+
+	else if (menu->zero && menu->width && menu->sign && menu->conv3)
 		joint = swap_plus_minus(joint, c, i);
 	if (menu->hash && menu->conv2 && (menu->width || menu->precision))
 		joint = swap_zero_x_r(joint, c, i);
@@ -107,6 +111,8 @@ char	*rightaligned(t_menu *menu, va_list arg, char *str)
 	{
 		if (menu->zero == 1 && menu->width > 0 && !menu->sign 
 			&& !menu->precision)
+			return (joint = converter_r(str, nb, menu, '0'));
+		else if (menu->zero && menu->width > 0 && menu->conv3)
 			return (joint = converter_r(str, nb, menu, '0'));
 		else 
 			return (joint = converter_r(str, nb, menu, ' '));

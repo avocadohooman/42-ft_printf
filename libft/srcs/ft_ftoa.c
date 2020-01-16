@@ -6,97 +6,52 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:43:04 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 18:31:29 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 18:05:48 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "libft.h"
-#include <stdio.h>
+#include <stdio.h> // remove
 
-static long double     power(unsigned long long n, unsigned long long i)
+static long double	rounding(int precision, long double f)
 {
-	long double	k;
-	long double	res;
+	long double	rounding;
+	int			d;
 
-	res = n;
-	k = 0;
-	if (i == 0)
-		return (1);
-	while (k < i - 1)
-	{
-		res = res * n;
-		k++;
-	}
-	return (res);
+	rounding = 0.5;
+	if (f < 0)
+		rounding *= -1;
+	d = 0;
+	while (d++ < precision)
+		rounding /= 10.0;
+	return (rounding);
 }
 
-// Reverses a string 'str' of length 'len' 
-static  void       reverse(char* str, unsigned long long len) 
-{ 
-    unsigned long long i = 0, j = len - 1, temp; 
-    while (i < j) { 
-        temp = str[i]; 
-        str[i] = str[j]; 
-        str[j] = temp; 
-        i++; 
-        j--; 
-    } 
-} 
-  
-// Converts a given integer x to string str[].  
-// d is the number of digits required in the output.  
-// If d is more than the number of digits in x,  
-// then 0s are added at the beginning. 
-static  int         intToStr(unsigned long long x, char str[], unsigned long long d) 
-{ 
-    unsigned long long i = 0; 
-    while (x) { 
-        str[i++] = (x % 10) + '0'; 
-        x = x / 10; 
-    } 
-  
-    // If number of digits required is more, then 
-    // add 0s at the beginning 
-    while (i < d) 
-        str[i++] = '0'; 
-  
-    reverse(str, i); 
-    str[i] = '\0'; 
-    return i; 
-} 
-  
-// Converts a floating-point/double number to a string. 
-char                *ft_ftoa(long double n, int afterpoint) 
-{ 
-    char    *stri;
-    char    *strf;
-    char     *str = malloc(sizeof(char) * 4096);
-    
-    stri = ft_itoa((int) n);
+char				*ft_ftoa(long double f, int precision, int dot)
+{
+	unsigned long long	dec;
+	char				*str_int;
+	char				*str_dec;
+	char				*joint;
+	int					i;
 
-    
-    // Extract integer part 
-    int ipart = (int)n; 
-  
-    // Extract floating part 
-    long double fpart = n - (long double)ipart; 
-
-    // convert integer part to string 
-    unsigned long long i = intToStr(ipart, str, 0); 
-  
-    // check for display option after point 
-   // printf("%.50Lf\n", fpart);
-    if (afterpoint != 0) { 
-        str[i] = '.'; // add dot 
-  
-        // Get the value of fraction part upto given no. 
-        // of points after dot. The third parameter  
-        // is needed to handle cases like 233.007 
-        fpart = fpart * power(10, afterpoint); 
-        printf("%.50Lf\n", fpart);
-
-        intToStr((int)fpart, str + i + 1, afterpoint); 
-    } 
-    return (str);
-} 
+	f = f + rounding(precision, f);
+	f *= (f < 0) ? -1 : 1;
+	dec = f;
+	str_int = ft_itoa(dec);
+	f = precision ? (f - dec) : 0;
+	str_dec = ft_strnew(precision + 2);
+	str_dec[0] = (dot) ? '.' : '\0';
+	i = 1;
+	while (precision-- > 0)
+	{
+		f *= 10;
+		dec = f;
+		f -= dec;
+		str_dec[i++] = dec + '0';
+	}
+	joint = ft_strjoin(str_int, str_dec);
+	free(str_dec);
+	free(str_int);
+	return (joint);
+}

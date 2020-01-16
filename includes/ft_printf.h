@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 09:57:55 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:21:12 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct	s_menu
 	int			sign;
 	int			conv;
 	int			conv2;
+	int			conv3;
 	int			x;
 
 }				t_menu;

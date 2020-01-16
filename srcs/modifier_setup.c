@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/13 16:55:16 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:21:22 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,27 @@ static	void	width(t_menu *menu, const char	*fmt, va_list arg)
 		menu->i++;
 }
 
-static	void	precision(t_menu *menu, const char *fmt)
+static	void	precision(t_menu *menu, const char *fmt, va_list arg, int nb)
 {
 	if (fmt[menu->i] == '.') 
 	{
 		menu->precision = -1;
-		if (fmt[menu->i + 1] >= '0' && fmt[menu->i + 1] <= '9')
+		menu->precisionft = 0;
+		menu->i++;
+		if (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
 		{
-			menu->i++;
 			menu->precision = ft_atoi(&fmt[menu->i]);
 			(menu->precision == 0) ? menu->precision = -1 : 0;
+			(menu->precision > 1) ? menu->precisionft = 1 : 0;
 		}
-		else
-			menu->i++;
+		else if (fmt[menu->i] == '*')
+		{
+			nb = va_arg(arg, int);
+			(nb >= 0) ? menu->precision = nb : 0;
+			(nb > 0) ? menu->precisionft = 1 : 0;
+			while (fmt[menu->i] == '*')
+				menu->i++;
+		}
 	}
 	while (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
 		menu->i++;
@@ -84,6 +92,6 @@ void	modifier(t_menu *menu, const char *fmt, va_list arg)
 {
 	flags(menu, fmt);
 	width(menu, fmt, arg);
-	precision(menu, fmt);
+	precision(menu, fmt, arg, 0);
 	length (menu, fmt);
 }

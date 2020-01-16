@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:34:43 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 09:57:44 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:22:24 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ void	conversion_distributor(t_menu *menu, char c, va_list arg)
 			conv_x(menu, arg);
 		}
 	}
-	(c == 'f') ? conv_f(menu, arg) : 0;
+	if (c == 'f')
+	{
+		menu->conv3 = 1;
+		conv_f(menu, arg);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 14:59:47 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/15 09:32:48 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 15:57:11 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	conv_x(t_menu *menu, va_list arg)
 	n = 0;
 	i = 0;
 	str = length_check_x(n, menu, arg);
+	(str[0] == '0') ? str[0] = '\0': 0;
 	if (menu->x == 1)
 		while (str[i++])
 			str[i] = ft_toupper(str[i]);

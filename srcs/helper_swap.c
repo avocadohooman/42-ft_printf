@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:49:28 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/14 17:24:00 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/16 17:41:52 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*swap_plus_minus(char *joint, char c, int i)
 {
 	while (joint[i] != '+' && joint[i] != '-'  && joint[i])
 		i++;
-	if (joint[i] == '+' || joint[i] == 'i')
+	if (joint[i] == '+' || joint[i] == '-')
 	{
 		c = joint[i];
 		joint[i] = '0';
