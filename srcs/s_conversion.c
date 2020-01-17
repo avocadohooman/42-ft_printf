@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 11:21:38 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/16 14:47:36 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/17 16:47:48 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	conv_s(t_menu *menu, va_list arg)
 	int		nb;
 
 	str = va_arg(arg, char *);
+	(str == NULL) ? str = "(null)": 0;
 	str = conv_s_precision(str, menu->precision);
 	nb = menu->width - ft_strlen(str);
 	if (menu->minus == 0 && nb > 0)
