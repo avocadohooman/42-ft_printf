@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:23:22 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 16:07:44 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:48:26 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	conv_perc(t_menu *menu)
 {
-	unsigned char	c;
 	int				nb;
 
 	nb = menu->width - 1;

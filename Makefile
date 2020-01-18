@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/18 10:42:14 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/18 12:48:11 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ all: ($NAME)
 ($NAME): all
 	make -C $(LIBFT_FOLDER)
 	@cp $(LIB) ./$(NAME)
-	gcc $(INCLUDES) -c $(SRCS1)
+	gcc $(FLAGS) $(INCLUDES) -c $(SRCS1)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 	make -s clean 

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:32:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:17:02 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:51:13 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	conv_f(t_menu *menu, va_list arg)
     char              	*str;
 	long double			n;
 
+	n = 0;
     str = length_check_f(n, menu, arg);
 	menu->nb = menu->precision - ft_strlen(str);
 	if (menu->space && !menu->sign)
@@ -48,9 +49,9 @@ void	conv_f(t_menu *menu, va_list arg)
 	if ((menu->plus && !menu->sign) || menu->sign)
 		str = pre_converter(str, menu, '+', 3); 
 	if (menu->minus == 1)
-		str = leftaligned(menu, arg, str);
+		str = leftaligned(menu, str);
 	else if (menu->minus == 0)
-		str = rightaligned(menu, arg, str);
+		str = rightaligned(menu, str);
 	
 	ft_putstr(str);
 	menu->printed += ft_strlen(str);

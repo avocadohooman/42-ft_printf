@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:28:46 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:46:03 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,23 @@
 
  	char *str = "Hello World";
 
- 	// ft_printf("'%-015s'\n'%15c'\n", str, c);
- 	// printf("'%-015s'\n'%15c'\n", str, c);
+ 	ft_printf("'%-015s'\n'%15c'\n", str, c);
+ 	printf("'%-015s'\n'%15c'\n", str, c);
 	
- 	// ft_printf("'%-0*s'\n'%15c'\n", 15, str, c);
- 	// printf("'%-0*s'\n'%15c'\n", 15, str, c);
+ 	ft_printf("'%-0*s'\n'%15c'\n", 15, str, c);
+ 	printf("'%-0*s'\n'%15c'\n", 15, str, c);
 	
- 	// ft_printf("'%15.s'\n", str);
- 	// printf("'%15.s'\n", str);
+ 	ft_printf("'%15.s'\n", str);
+ 	printf("'%15.s'\n", str);
 
- 	// ft_printf("'%15.0s'\n", str);
- 	// printf("'%15.0s'\n", str);
+ 	ft_printf("'%15.0s'\n", str);
+ 	printf("'%15.0s'\n", str);
 
- 	// ft_printf("'%-15.0006s'\n", str);
- 	// printf("'%-15.0006s'\n", str);
+ 	ft_printf("'%-15.0006s'\n", str);
+ 	printf("'%-15.0006s'\n", str);
 
- 	// ft_printf("'%*.6s'\n", 15, str);
- 	// printf("'%*.6s'\n", 15, str);
+ 	ft_printf("'%*.6s'\n", 15, str);
+ 	printf("'%*.6s'\n", 15, str);
 
 	printf("'hello, %s.'\n", NULL);
 	ft_printf("'hello, %s.'\n", NULL);
@@ -525,7 +525,10 @@
  	ft_printf("'%+050.0o'\n'%+050ll.0o'\n", i, lli);
  	printf("'%+050.0o'\n'%+050ll.0o'\n", i, lli);
 	
-	
+	ft_printf("\n****** TEST #21 ******\n\n");
+	ft_printf("'%08.5i' ", 0);
+	printf("'%08.5i'", 0);
+
  	// RIGHT ALIGNED TESTS END
  	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
 	
@@ -1200,15 +1203,15 @@ int main()
 	*/
 
 	simple();
-	// c();
-	// s();
-	// p();
-	// id();
-	// o();
-	// u();
-	// x();
-	// f();	
+	c();
+	s();
+	p();
+	id();
+	o();
+	u();
+	x();
+	f();	
 	
-	//while (1);
+	while (1);
 	return (0);
 }

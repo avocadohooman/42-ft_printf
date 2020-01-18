@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:17:18 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:50:07 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	*converter_l(char *str, size_t nb, t_menu *menu, char c)
 	char	*joint;
 	char	*tmp;
 	int		i;
-	char	s;
 
 	joint = NULL;
 	tmp = NULL;
@@ -57,7 +56,7 @@ char	*converter_l(char *str, size_t nb, t_menu *menu, char c)
 	free(tmp);
 	free(str);
 	if (menu->hash && menu->conv2 && (menu->width || menu->precision))
-		joint = swap_zero_x_l(joint, s, i);
+		joint = swap_zero_x_l(joint, 'c', i);
 	return (joint);
 }
 
@@ -65,7 +64,6 @@ char	*converter_r(char *str, size_t nb, t_menu *menu, char c)
 {
 	char	*joint;
 	char	*tmp;
-	char	s;
 	int		i;
 
 	joint = NULL;
@@ -87,7 +85,7 @@ char	*converter_r(char *str, size_t nb, t_menu *menu, char c)
 	return (joint);
 }
 
-char	*leftaligned(t_menu *menu, va_list arg, char *str)
+char	*leftaligned(t_menu *menu, char *str)
 {
 	int		nb;
 	char	*joint;
@@ -101,7 +99,7 @@ char	*leftaligned(t_menu *menu, va_list arg, char *str)
 	return (str);
 }
 
-char	*rightaligned(t_menu *menu, va_list arg, char *str)
+char	*rightaligned(t_menu *menu, char *str)
 {
 	int		nb;
 	char	*joint;
