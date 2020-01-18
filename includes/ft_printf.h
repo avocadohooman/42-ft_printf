@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:50:02 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 19:31:22 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <float.h>
+# include <limits.h>
 # include <stdio.h> // REMOVE
 # include "../libft/includes/libft.h"
 

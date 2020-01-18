@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:32:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:51:13 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 19:34:48 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static	char	*length_check_f(long double n, t_menu *menu, va_list arg)
     else if (menu->length == L)
         n = va_arg(arg, long double);
 	(n < 0) ? menu->sign = 1 : 0;
+	printf("N: %Lf\n", n);
+	printf("%d\n", menu->sign);
 	if (menu->precision == 0)
 	{
 		menu->precision = 6;
@@ -46,7 +48,9 @@ void	conv_f(t_menu *menu, va_list arg)
 		menu->nb = 1;
 		str = pre_converter(str, menu, ' ', 2);
 	}
-	if ((menu->plus && !menu->sign) || menu->sign)
+	printf("%d\n", menu->plus);
+	printf("%d\n", menu->sign);
+	if (((menu->plus && !menu->sign) || menu->sign) && str[0] != '-')
 		str = pre_converter(str, menu, '+', 3); 
 	if (menu->minus == 1)
 		str = leftaligned(menu, str);
