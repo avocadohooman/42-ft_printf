@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 17:07:36 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:17:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ char	*converter_r(char *str, size_t nb, t_menu *menu, char c)
 	if (menu->zero && menu->width && (menu->plus || menu->minus) 
 		&& !menu->precision && !menu->conv) 
 		joint = swap_plus_minus(joint, c, i);
-	else if (menu->zero && menu->width && menu->sign && menu->conv3)
+	else if (menu->zero && menu->width && (menu->sign || menu->plus)
+			&& menu->conv3)
 		joint = swap_plus_minus(joint, c, i);
 	if (menu->hash && menu->conv2 && (menu->width || menu->precision))
 		joint = swap_zero_x_r(joint, c, i);
-	//printf("%s\n", joint);
+	(menu->space && menu->width) ? joint = swap_space(joint, c, i) : 0;
 	return (joint);
 }
 
@@ -114,6 +115,11 @@ char	*rightaligned(t_menu *menu, va_list arg, char *str)
 			return (joint = converter_r(str, nb, menu, '0'));
 		else if (menu->zero && menu->width > 0 && menu->conv3)
 			return (joint = converter_r(str, nb, menu, '0'));
+		else if (menu->zero && !menu->precision)
+		{
+			joint = converter_r(str, nb, menu, '0');
+			return (joint = swap_plus_minus(joint, '+', 0));
+		}
 		else 
 			return (joint = converter_r(str, nb, menu, ' '));
 	}

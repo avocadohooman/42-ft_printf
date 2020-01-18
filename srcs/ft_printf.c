@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 09:50:00 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 16:28:23 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:22:04 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 
 int		fmt_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 {
-	
 	while(fmt[pos])
 	{
 		if (fmt[pos] != '%')

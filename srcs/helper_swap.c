@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:49:28 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/16 17:41:52 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:16:50 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,19 @@ char	*swap_zero_x_r(char *joint, char c, int i)
 		while (joint[i] == ' ' || joint[i] == '\t' || joint[i] == '\n')
 			i++;
 		joint[i + 1] = c;
+	}
+	return (joint);
+}
+
+char	*swap_space(char *joint, char c, int i)
+{
+	while (joint[i] != ' ' && joint[i])
+		i++;
+	if (joint[i] == ' ')
+	{
+		c = joint[i];
+		joint[i] = '0';
+		joint[0] = c;
 	}
 	return (joint);
 }

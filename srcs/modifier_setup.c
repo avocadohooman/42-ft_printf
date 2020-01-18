@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/16 17:21:22 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 12:21:40 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static	void	precision(t_menu *menu, const char *fmt, va_list arg, int nb)
 		{
 			menu->precision = ft_atoi(&fmt[menu->i]);
 			(menu->precision == 0) ? menu->precision = -1 : 0;
-			(menu->precision > 1) ? menu->precisionft = 1 : 0;
+			(menu->precision >= 1) ? menu->precisionft = 1 : 0;
 		}
 		else if (fmt[menu->i] == '*')
 		{

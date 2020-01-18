@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 17:02:11 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 17:16:23 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:10:59 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	conv_u(t_menu *menu, va_list arg)
 	n = 0;
 	str = length_check_u(n, menu, arg);
 	menu->nb = menu->precision - ft_strlen(str);
-	(str[0] == '0') ? str[0] = '0': 0;
 	(str[0] == '0' && menu->precision == -1) ? str[0] = '\0': 0;
 	if (menu->precision > 0 && menu->nb > 0)
 		str = pre_converter(str, menu, '0', 1);

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 14:59:47 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/16 15:57:11 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 11:24:25 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ void	conv_x(t_menu *menu, va_list arg)
 	n = 0;
 	i = 0;
 	str = length_check_x(n, menu, arg);
-	(str[0] == '0') ? str[0] = '\0': 0;
+	(str[0] == '0' && menu->precision == -1) ? str[0] = '\0': 0;
 	if (menu->x == 1)
-		while (str[i++])
+		while (str[i])
+		{
 			str[i] = ft_toupper(str[i]);
-	if (menu->hash)
+			i++;
+		}
+	if (menu->hash && str[0] != '0' && str[0] != '\0')
 	{
 		menu->nb = menu->precision - ft_strlen(str);
 		(menu->x == 1) ? str = pre_converter(str, menu, 'X', 0) : 0;

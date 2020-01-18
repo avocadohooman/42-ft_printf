@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/16 17:21:12 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/18 10:33:50 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ char	*rightaligned(t_menu *menu, va_list arg, char *str);
 char	*swap_plus_minus(char *joint, char c, int i);
 char	*swap_zero_x_l(char *joint, char c, int i);
 char	*swap_zero_x_r(char *joint, char c, int i);
+char	*swap_space(char *joint, char c, int i);
 
 
 #endif

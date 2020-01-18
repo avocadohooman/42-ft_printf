@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/17 16:23:48 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/18 10:42:14 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ all: ($NAME)
 	gcc $(INCLUDES) -c $(SRCS1)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+	make -s clean 
 
 run: 
 	@gcc -c $(SRCS2) $(INCL)
