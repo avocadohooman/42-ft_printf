@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 14:59:47 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:50:54 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 10:17:30 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static	char	*length_check_x(unsigned long n, t_menu *menu, va_list arg)
 		n = (unsigned short)va_arg(arg, unsigned int);
 	else if (menu->length == hh)
 		n = (unsigned char)va_arg(arg, unsigned int);
+	else if (menu->length == Z)
+		n = (size_t)va_arg(arg, size_t);
 	else if (menu->length == 0)
 		n = va_arg(arg, unsigned int);
 	return (ft_itoa_base(n, 16));

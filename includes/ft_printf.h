@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 19:31:22 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 10:14:07 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <float.h>
-# include <limits.h>
+# include <float.h>	//maybe remove
+# include <stdint.h> //maybe remove
+# include <limits.h> //maybe remove
 # include <stdio.h> // REMOVE
 # include "../libft/includes/libft.h"
 
@@ -34,11 +35,12 @@
 # define L			3
 # define h			4
 # define hh			5
+# define Z			6
 
 # define CONVERSION	"cspdiouxXf%"
-# define FLAGS		"#0-+ .*0123456789hlL"
-# define ALL		"#0-+ .*0123456789hlLcspdiouxXf%"
-# define LENGTH		"lLh"
+# define FLAGS		"#0-+ .*0123456789hlLz"
+# define ALL		"#0-+ .*0123456789hlLzcspdiouxXf%"
+# define LENGTH		"lLhz"
 
 /*
 ** ------ STRUCTS ------

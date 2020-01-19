@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 14:59:26 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:50:32 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 10:12:41 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static	char	*length_check_int(intmax_t n, t_menu *menu, va_list arg)
 		n = (short int)va_arg(arg, int);
 	else if (menu->length == hh)
 		n = (signed char)va_arg(arg, int);
+	else if (menu->length == Z)
+		n = (size_t)va_arg(arg, size_t);
 	else if (menu->length == 0)
 		n = (int)va_arg(arg, int);
 	if (n < 0)

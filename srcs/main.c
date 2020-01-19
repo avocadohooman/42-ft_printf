@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 19:32:38 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 10:15:21 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1196,13 +1196,18 @@ void	f(void)
 	// ft_printf("'%f'\n", (double)-2147483648);
 	// printf("'%f'\n", (double)-2147483648);
 
+	double n2 = -2147483648 - 1;
+	
  	ft_printf("\n****** TEST #33 ******\n\n");
- 	ft_printf("'%f'\n", (double)-2147483648 - 1);
-	printf("'%f'\n", (double)-2147483648 - 1);
+ 	ft_printf("'%f'\n", n2);
+	printf("'%f'\n", n2);
+	
+
+	double n = 2147483647 + 1;
 	
 	ft_printf("\n****** TEST #34 ******\n\n");
- 	ft_printf("'%f'\n", (double)2147483647 + 1);
-	printf("'%f'\n", (double)2147483647 + 1);
+ 	ft_printf("'%f'\n", n);
+	printf("'%f'\n", n);
 
 	
 

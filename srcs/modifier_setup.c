@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:21:40 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 10:11:44 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static	void	length(t_menu *menu, const char *fmt)
 			menu->length = h;		
 	} 
 	(fmt[menu->i] == 'L') ? menu->length = L : 0;
+	(fmt[menu->i] == 'z') ? menu->length = Z : 0;
 	while (ft_strchr(LENGTH, fmt[menu->i]))
 		menu->i++;
 }
