@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 12:57:21 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/19 10:14:07 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:44:06 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,17 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <float.h>	//maybe remove
-# include <stdint.h> //maybe remove
-# include <limits.h> //maybe remove
-# include <stdio.h> // REMOVE
 # include "../libft/includes/libft.h"
 
 /*
 ** ------ FLAGS / MODIFIER / CONVERSION VARIABLES ------
 */
 
-# define l			1
-# define ll			2
-# define L			3
-# define h			4
-# define hh			5
+# define L			1
+# define LL			2
+# define BIGL		3
+# define H			4
+# define HH			5
 # define Z			6
 
 # define CONVERSION	"cspdiouxXf%"
@@ -50,26 +46,20 @@ typedef struct	s_menu
 {
 
 	char		*fmt;
-
 	int			printed;
-
 	int			i;
 	int			len;
-
-
-	int			plus;			// +
-	int			minus;			// - left aligned
-	int			hash;			//	
-	int			space;			// spaces
-	int			zero;			// zeros instead of spaces
-	int			nb;				// tota length
-	char		padding;		// 0 or ' '
-	
-	int			width;			// padding 0 - 9
-	int			length;			// h, hh, l, ll, L
-	int			precision;		//	. --> how many decimal or characters will be shown
+	int			plus;
+	int			minus;
+	int			hash;
+	int			space;
+	int			zero;
+	int			nb;
+	char		padding;
+	int			width;
+	int			length;
+	int			precision;
 	int			precisionft;
-
 	int			sign;
 	int			conv;
 	int			conv2;
@@ -78,75 +68,102 @@ typedef struct	s_menu
 
 }				t_menu;
 
-
 /*
-** ------ GLOBAL FUNCTIONS ------
+** ------ FT_PRINTF.C ------
 */
 
-//ft_printf.c functions
+int				ft_printf(const char *fmt, ...);
+int				fmt_parser(t_menu *menu, const char *fmt, va_list arg, int pos);
+int				cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos);
+void			initiliaze_menu2(t_menu *menu);
+void			initiliaze_menu(t_menu *menu);
 
-int		ft_printf(const char *fmt, ...);
-int		fmt_parser(t_menu *menu, const char *fmt, va_list arg, int pos);
-int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos);
-void	initiliaze_menu2(t_menu *menu);
-void	initiliaze_menu(t_menu *menu); 
+/*
+** ------ CONVERSION_DISTRIBUTOR.C ------
+*/
 
-//conversion_distributor.c functions
+void			conversion_distributor(t_menu *menu, char c, va_list arg);
 
-void	conversion_distributor(t_menu *menu, char c, va_list arg);
+/*
+** ------ MODIFIER_SETUP.C ------
+*/
 
-//modifier_setup.c functions
+void			modifier(t_menu *menu, const char *fmt, va_list arg);
 
-void	modifier(t_menu *menu, const char* fmt, va_list arg);
+/*
+** ------ C_CONVERSION.C ------
+*/
 
-//c_conversion.c functions
+void			conv_c(t_menu *menu, va_list arg);
+void			conv_perc(t_menu *menu);
 
-void	conv_c(t_menu *menu, va_list arg);
-void	conv_perc(t_menu *menu);
+/*
+** ------ S_CONVERSION.C ------
+*/
 
-//s_conversion.c functions
+void			conv_s(t_menu *menu, va_list arg);
 
-void	conv_s(t_menu *menu, va_list arg);
+/*
+** ------ P_CONVERSION.C ------
+*/
 
-//p_conversion.c functions
+void			conv_p(t_menu *menu, va_list arg);
 
-void	conv_p(t_menu *menu, va_list arg);
+/*
+** ------ ID_CONVERSION.C ------
+*/
 
-//id_conversion.c functions
+void			conv_id(t_menu *menu, va_list arg);
 
-void	conv_id(t_menu *menu, va_list arg);
+/*
+** ------ O_CONVERSION.C ------
+*/
 
-//o_conversion.c functions
-void	conv_o(t_menu *menu, va_list arg);
+void			conv_o(t_menu *menu, va_list arg);
 
-//u_conversion.c functions
-void	conv_u(t_menu *menu, va_list arg);
+/*
+** ------ U_CONVERSION.C ------
+*/
 
-//x_conversion.c functions
-void	conv_x(t_menu *menu, va_list arg);
+void			conv_u(t_menu *menu, va_list arg);
 
-//x_conversion.c functions
-void	conv_f(t_menu *menu, va_list arg);
+/*
+** ------ X_CONVERSION.C ------
+*/
 
-//helper_print.c functions
+void			conv_x(t_menu *menu, va_list arg);
 
-void	printspace(t_menu *menu, int nb);
-void	printzero(t_menu *menu, int nb);
-void	widthstar(t_menu *menu, const char *fmt, va_list arg);
+/*
+** ------ F_CONVERSION.C ------
+*/
 
-//helper_converter.c functions
+void			conv_f(t_menu *menu, va_list arg);
 
-char	*pre_converter(char *str, t_menu *menu, char c, int check);
-char	*converter_l(char *str, size_t nb, t_menu *menu, char c);
-char	*converter_r(char *str, size_t nb, t_menu *menu, char c);
-char	*leftaligned(t_menu *menu, char *str);
-char	*rightaligned(t_menu *menu, char *str);
+/*
+** ------ HELPER_PRINT.C ------
+*/
 
-//helper_swap.c functions
-char	*swap_plus_minus(char *joint, char c, int i);
-char	*swap_zero_x_l(char *joint, char c, int i);
-char	*swap_zero_x_r(char *joint, char c, int i);
-char	*swap_space(char *joint, char c, int i);
+void			printspace(t_menu *menu, int nb);
+void			printzero(t_menu *menu, int nb);
+void			widthstar(t_menu *menu, const char *fmt, va_list arg);
 
+/*
+** ------ HELPER_CONVERTER.C ------
+*/
+
+char			*pre_converter(char *str, t_menu *menu, char c, int check);
+char			*converter_l(char *str, size_t nb, t_menu *menu, char c);
+char			*converter_r(char *str, size_t nb, t_menu *menu, char c);
+char			*leftaligned(t_menu *menu, char *str);
+char			*rightaligned(t_menu *menu, char *str);
+
+/*
+** ------ HELPER_SWAP.C ------
+*/
+
+char			*swap_plus_minus(char *joint, char c, int i);
+char			*swap_zero_x_l(char *joint, char c, int i);
+char			*swap_zero_x_r(char *joint, char c, int i);
+char			*swap_space(char *joint, char c, int i);
 
 #endif

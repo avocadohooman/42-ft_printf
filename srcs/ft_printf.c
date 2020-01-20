@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 09:50:00 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/19 10:09:07 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 15:48:39 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	initiliaze_menu(t_menu *menu)
 	menu->sign = 0;
 	menu->conv = 0;
 	menu->conv2 = 0;
+	menu->conv3 = 0;
 	menu->x = 0;
 }
 
@@ -47,8 +48,9 @@ void	initiliaze_menu2(t_menu *menu)
 	menu->precision = 0;
 	menu->precisionft = 0;
 	menu->sign = 0;
-	menu->conv = 0; 
+	menu->conv = 0;
 	menu->conv2 = 0;
+	menu->conv3 = 0;
 	menu->x = 0;
 }
 
@@ -68,18 +70,15 @@ int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 
 int		fmt_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 {
-	while(fmt[pos])
+	while (fmt[pos])
 	{
 		if (fmt[pos] != '%')
-		{
-			ft_putchar(fmt[pos]);
-			menu->printed++;
-		}
+			menu->printed += write(1, &fmt[pos], 1);
 		if (fmt[pos] == '%')
 		{
-			if (!(ft_strchr(ALL, fmt[pos + 1])))
+			if (!(ft_strchr(ALL, fmt[pos + 1]) || fmt[pos] == '\0'))
 				break ;
-			while (ft_strchr(ALL, fmt[pos + 1]))
+			while (ft_strchr(ALL, fmt[pos + 1]) && fmt[pos] != '\0')
 			{
 				pos++;
 				if (ft_strchr(CONVERSION, fmt[pos]))
@@ -99,12 +98,12 @@ int		fmt_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 
 int		ft_printf(const char *fmt, ...)
 {
-	va_list 	arg;
-	t_menu 		*menu;
+	va_list		arg;
+	t_menu		*menu;
 	int			c_count;
 	int			fmtlen;
 
-	if(!(menu = (t_menu*)malloc(sizeof(t_menu))))
+	if (!(menu = (t_menu*)malloc(sizeof(t_menu))))
 		return (0);
 	menu->fmt = (char *)fmt;
 	initiliaze_menu(menu);
@@ -112,10 +111,10 @@ int		ft_printf(const char *fmt, ...)
 	fmtlen = ft_strlen(fmt);
 	if (!fmtlen)
 		return (0);
-	if (fmtlen == 1 && fmt[0] == '%' )
+	if (fmtlen == 1 && fmt[0] == '%')
 		return (0);
 	c_count = fmt_parser(menu, fmt, arg, 0);
-	va_end(arg);	
+	va_end(arg);
 	free(menu);
 	return (c_count);
 }

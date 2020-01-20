@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:05:51 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 14:31:43 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:42:24 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	conv_p(t_menu *menu, va_list arg)
 	char				*str;
 	char				*joint;
 	int					nb;
-	
+
 	pointer = va_arg(arg, unsigned long long);
 	str = ft_itoa_base((unsigned long long)pointer, 16);
 	joint = ft_strjoin("0x", str);
 	nb = menu->width - (ft_strlen(joint));
 	if (menu->minus == 0 && nb > 0)
-		(menu->zero == 1) ? printzero (menu, nb) : printspace(menu, nb);
+		(menu->zero == 1) ? printzero(menu, nb) : printspace(menu, nb);
 	if (menu->minus == 1 && nb > 0)
 	{
 		ft_putstr(joint);

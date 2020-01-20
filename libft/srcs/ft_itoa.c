@@ -6,20 +6,20 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 18:14:35 by vkuokka           #+#    #+#             */
-/*   Updated: 2020/01/10 16:20:46 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 09:46:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isneg(int n)
+static int	ft_isneg(long n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-static int	ft_len(int n)
+static int	ft_len(long n)
 {
 	int count;
 
@@ -29,7 +29,7 @@ static int	ft_len(int n)
 	return (count);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long n)
 {
 	size_t			i;
 	char			*strnb;

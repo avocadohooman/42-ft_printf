@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 15:52:07 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:50:07 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 15:28:47 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@ char	*pre_converter(char *str, t_menu *menu, char c, int check)
 	char	*tmp;
 	char	*joint;
 
-	joint = NULL;
-	tmp = NULL;
 	if (check == 0)
 	{
 		(str[0] == '0' && c == '0') ? joint = ft_strdup(str) : 0;
 		(str[0] != '0' && c == '0') ? joint = ft_strjoin("0", str) : 0;
-		(c == 'x') ? joint = ft_strjoin("0x", str) : 0;	
-		(c == 'X') ? joint = ft_strjoin("0X", str) : 0;	
+		(c == 'x') ? joint = ft_strjoin("0x", str) : 0;
+		(c == 'X') ? joint = ft_strjoin("0X", str) : 0;
 	}
 	if (check == 1 || check == 2)
-	{	
-		tmp = ft_strcnew(menu->nb, c);	
+	{
+		tmp = ft_strcnew(menu->nb, c);
 		joint = ft_strjoin(tmp, str);
 		free(tmp);
 	}
@@ -51,7 +49,7 @@ char	*converter_l(char *str, size_t nb, t_menu *menu, char c)
 	joint = NULL;
 	tmp = NULL;
 	i = 0;
-	tmp = ft_strcnew(nb, c);	
+	tmp = ft_strcnew(nb, c);
 	joint = ft_strjoin(str, tmp);
 	free(tmp);
 	free(str);
@@ -68,13 +66,13 @@ char	*converter_r(char *str, size_t nb, t_menu *menu, char c)
 
 	joint = NULL;
 	tmp = NULL;
-	tmp = ft_strcnew(nb, c);	
+	tmp = ft_strcnew(nb, c);
 	joint = ft_strjoin(tmp, str);
 	i = 0;
 	free(tmp);
 	free(str);
-	if (menu->zero && menu->width && (menu->plus || menu->minus) 
-		&& !menu->precision && !menu->conv) 
+	if (menu->zero && menu->width && (menu->plus || menu->minus)
+		&& !menu->precision && !menu->conv)
 		joint = swap_plus_minus(joint, c, i);
 	else if (menu->zero && menu->width && (menu->sign || menu->plus)
 			&& menu->conv3)
@@ -108,7 +106,7 @@ char	*rightaligned(t_menu *menu, char *str)
 	nb = menu->width - ft_strlen(str);
 	if (nb > 0)
 	{
-		if (menu->zero == 1 && menu->width > 0 && !menu->sign 
+		if (menu->zero == 1 && menu->width > 0 && !menu->sign
 			&& !menu->precision)
 			return (joint = converter_r(str, nb, menu, '0'));
 		else if (menu->zero && menu->width > 0 && menu->conv3)
@@ -118,7 +116,7 @@ char	*rightaligned(t_menu *menu, char *str)
 			joint = converter_r(str, nb, menu, '0');
 			return (joint = swap_plus_minus(joint, '+', 0));
 		}
-		else 
+		else
 			return (joint = converter_r(str, nb, menu, ' '));
 	}
 	if (nb < 0 && menu->nb > 0 && menu->conv2)

@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:32:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/19 10:07:39 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:44:41 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 static	char	*length_check_f(long double n, t_menu *menu, va_list arg)
 {
-    if (menu->length == 0)
-        n = (double)va_arg(arg, double);
-    else if (menu->length == L)
-        n = va_arg(arg, long double);
+	if (menu->length == 0)
+		n = (double)va_arg(arg, double);
+	else if (menu->length == BIGL)
+		n = va_arg(arg, long double);
 	(n < 0) ? menu->sign = 1 : 0;
-	// printf("N: %Lf\n", n);
-	// printf("%d\n", menu->sign);
 	if (menu->precision == 0)
 	{
 		menu->precision = 6;
@@ -35,28 +33,25 @@ static	char	*length_check_f(long double n, t_menu *menu, va_list arg)
 	return (ft_ftoa(n, menu->precision, menu->precisionft));
 }
 
-void	conv_f(t_menu *menu, va_list arg)
+void			conv_f(t_menu *menu, va_list arg)
 {
-    char              	*str;
-	long double			n;
+	char			*str;
+	long double		n;
 
 	n = 0;
-    str = length_check_f(n, menu, arg);
+	str = length_check_f(n, menu, arg);
 	menu->nb = menu->precision - ft_strlen(str);
 	if (menu->space && !menu->sign)
 	{
 		menu->nb = 1;
 		str = pre_converter(str, menu, ' ', 2);
 	}
-	// printf("%d\n", menu->plus);
-	// printf("%d\n", menu->sign);
 	if (((menu->plus && !menu->sign) || menu->sign) && str[0] != '-')
-		str = pre_converter(str, menu, '+', 3); 
+		str = pre_converter(str, menu, '+', 3);
 	if (menu->minus == 1)
 		str = leftaligned(menu, str);
 	else if (menu->minus == 0)
 		str = rightaligned(menu, str);
-	
 	ft_putstr(str);
 	menu->printed += ft_strlen(str);
 	ft_strdel(&str);

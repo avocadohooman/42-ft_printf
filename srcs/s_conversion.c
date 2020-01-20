@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 11:21:38 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/17 16:47:48 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:41:20 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	char	*conv_s_precision(char *str, int n)
 {
-	char *tmp;
+	char	*tmp;
 
 	if (n > 0 && (size_t)n <= ft_strlen(str))
 	{
@@ -28,21 +28,21 @@ static	char	*conv_s_precision(char *str, int n)
 	return (str);
 }
 
-void	conv_s(t_menu *menu, va_list arg)
+void			conv_s(t_menu *menu, va_list arg)
 {
-	char 	*str;
+	char	*str;
 	int		nb;
 
 	str = va_arg(arg, char *);
-	(str == NULL) ? str = "(null)": 0;
+	(str == NULL) ? str = "(null)" : 0;
 	str = conv_s_precision(str, menu->precision);
 	nb = menu->width - ft_strlen(str);
 	if (menu->minus == 0 && nb > 0)
 	{
 		if (menu->zero == 1)
-			printzero (menu, nb);
+			printzero(menu, nb);
 		else
-			printspace(menu, nb);	
+			printspace(menu, nb);
 	}
 	if (menu->minus == 1 && nb > 0)
 	{

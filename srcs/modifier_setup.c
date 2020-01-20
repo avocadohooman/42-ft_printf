@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:36:17 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/19 10:11:44 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 15:44:43 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	void	flags(t_menu *menu, const char *fmt)
 		menu->space = 0;
 }
 
-static	void	width(t_menu *menu, const char	*fmt, va_list arg)
+static	void	width(t_menu *menu, const char *fmt, va_list arg)
 {
 	widthstar(menu, fmt, arg);
 	if (fmt[menu->i] >= '0' && fmt[menu->i] <= '9')
@@ -43,7 +43,7 @@ static	void	width(t_menu *menu, const char	*fmt, va_list arg)
 
 static	void	precision(t_menu *menu, const char *fmt, va_list arg, int nb)
 {
-	if (fmt[menu->i] == '.') 
+	if (fmt[menu->i] == '.')
 	{
 		menu->precision = -1;
 		menu->precisionft = 0;
@@ -72,27 +72,27 @@ static	void	length(t_menu *menu, const char *fmt)
 	if (fmt[menu->i] == 'l')
 	{
 		if (fmt[menu->i + 1] == 'l')
-			menu->length = ll;
+			menu->length = LL;
 		else if (fmt[menu->i - 1] != 'l')
-			menu->length = l;
+			menu->length = L;
 	}
 	if (fmt[menu->i] == 'h')
 	{
 		if (fmt[menu->i + 1] == 'h')
-			menu->length = hh;
+			menu->length = HH;
 		else if (fmt[menu->i - 1] != 'h')
-			menu->length = h;		
-	} 
-	(fmt[menu->i] == 'L') ? menu->length = L : 0;
+			menu->length = H;
+	}
+	(fmt[menu->i] == 'L') ? menu->length = BIGL : 0;
 	(fmt[menu->i] == 'z') ? menu->length = Z : 0;
 	while (ft_strchr(LENGTH, fmt[menu->i]))
 		menu->i++;
 }
 
-void	modifier(t_menu *menu, const char *fmt, va_list arg)
+void			modifier(t_menu *menu, const char *fmt, va_list arg)
 {
 	flags(menu, fmt);
 	width(menu, fmt, arg);
 	precision(menu, fmt, arg, 0);
-	length (menu, fmt);
+	length(menu, fmt);
 }

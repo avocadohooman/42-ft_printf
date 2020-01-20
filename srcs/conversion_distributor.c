@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:34:43 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/19 10:09:24 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:41:15 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	conversion_distributor(t_menu *menu, char c, va_list arg)
 {
 	(c == '%') ? conv_perc(menu) : 0;
-	(c == 'c') ? conv_c(menu, arg): 0;
-	(c == 's') ? conv_s(menu, arg): 0;
-	(c == 'p') ? conv_p(menu, arg): 0;
-	(c == 'i' || c == 'd') ? conv_id(menu, arg): 0;
+	(c == 'c') ? conv_c(menu, arg) : 0;
+	(c == 's') ? conv_s(menu, arg) : 0;
+	(c == 'p') ? conv_p(menu, arg) : 0;
+	(c == 'i' || c == 'd') ? conv_id(menu, arg) : 0;
 	if (c == 'o' || c == 'u' || c == 'x' || c == 'X')
 	{
 		menu->conv = 1;

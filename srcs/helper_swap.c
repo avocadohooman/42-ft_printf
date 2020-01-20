@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:49:28 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/18 12:16:50 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/20 14:43:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*swap_plus_minus(char *joint, char c, int i)
 {
-	while (joint[i] != '+' && joint[i] != '-'  && joint[i])
+	while (joint[i] != '+' && joint[i] != '-' && joint[i])
 		i++;
 	if (joint[i] == '+' || joint[i] == '-')
 	{
@@ -27,10 +27,10 @@ char	*swap_plus_minus(char *joint, char c, int i)
 
 char	*swap_zero_x_l(char *joint, char c, int i)
 {
-	while (joint[i] != 'x' && joint[i] != 'X'  && joint[i])
+	while (joint[i] != 'x' && joint[i] != 'X' && joint[i])
 		i++;
 	if (joint[i] == 'x' || joint[i] == 'X')
-	{	
+	{
 		c = joint[i];
 		joint[i] = '0';
 		joint[1] = c;
@@ -40,7 +40,7 @@ char	*swap_zero_x_l(char *joint, char c, int i)
 
 char	*swap_zero_x_r(char *joint, char c, int i)
 {
-	while (joint[i] != 'x' && joint[i] != 'X'  && joint[i])
+	while (joint[i] != 'x' && joint[i] != 'X' && joint[i])
 		i++;
 	if (joint[i] == 'x' || joint[i] == 'X')
 	{

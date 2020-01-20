@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 11:41:03 by vkuokka           #+#    #+#              #
-#    Updated: 2020/01/16 16:01:16 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/20 11:40:04 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS =	srcs/ft_bzero.c \
 		srcs/ft_strchr.c \
 		srcs/ft_strrchr.c \
 		srcs/ft_strrev.c \
+		srcs/ft_strupper.c \
 		srcs/ft_strstr.c \
 		srcs/ft_strnstr.c \
 		srcs/ft_strcmp.c \
@@ -104,6 +105,7 @@ OBJ =	ft_bzero.o \
 		ft_strchr.o \
 		ft_strrchr.o \
 		ft_strrev.o \
+		ft_strupper.o \
 		ft_strstr.o \
 		ft_strnstr.o \
 		ft_strcmp.o \

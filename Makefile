@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/18 12:48:11 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/20 16:37:40 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS1 = ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
 		./srcs/helper_converter.c ./srcs/o_conversion.c ./srcs/u_conversion.c \
 		./srcs/x_conversion.c ./srcs/helper_swap.c ./srcs/f_conversion.c
 
-SRCS2 = ./srcs/main.c ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
+SRCS2 = main.c ./srcs/ft_printf.c ./srcs/conversion_distributor.c \
 		./srcs/modifier_setup.c ./srcs/c_conversion.c ./srcs/helper_print.c \
 		./srcs/s_conversion.c ./srcs/p_conversion.c ./srcs/id_conversion.c \
 		./srcs/helper_converter.c ./srcs/o_conversion.c ./srcs/u_conversion.c \
@@ -40,17 +40,18 @@ OBJS2 = $(subst .c,.o,$(subst srcs/,,$(SRCS2)))
 
 INCL = -I ./includes/ -I ./libft/includes/
 
-all: ($NAME)
+all: $(NAME)
 
-($NAME): all
+$(NAME): all
 	make -C $(LIBFT_FOLDER)
 	@cp $(LIB) ./$(NAME)
 	gcc $(FLAGS) $(INCLUDES) -c $(SRCS1)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	make -s clean 
+	#make -s clean 
 
 run: 
+	@gcc -c main.c $(NAME)
 	@gcc -c $(SRCS2) $(INCL)
 	@gcc $(INCL) $(OBJS2) $(LIB) -o $(EXE)
 	
@@ -62,7 +63,7 @@ fclean: clean
 	@rm -f $(NAME)
 	@make -s fclean -C libft
 	
-re: clean all
+re: fclean all
 
 printf: clean run
 		@rm -f $(OBJS2)
