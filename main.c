@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 13:35:57 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:50:32 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@
 	printf("%-5");
 
 	ft_printf("%5");
+
+	printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
+	
+	ft_printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
+
+	printf("PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
+	ft_printf("FT_PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
 
 	//printf("hello, %s.", "gavin");
 	

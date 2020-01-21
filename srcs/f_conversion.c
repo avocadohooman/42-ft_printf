@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 09:32:42 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:21:26 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 17:00:27 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static	char	*length_check_f(long double n, t_menu *menu, va_list arg)
 {
-	if (menu->length == 0)
-		n = (double)va_arg(arg, double);
-	else if (menu->length == BIGL)
-		n = va_arg(arg, long double);
+	if (menu->length == BIGL)
+		n = (long double)va_arg(arg, long double);
+	else 
+		n = (long double)va_arg(arg, double);
 	(n < 0) ? menu->sign = 1 : 0;
 	if (menu->precision == 0)
 	{
