@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:34:43 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:17:37 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:22:43 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	conversion_distributor(t_menu *menu, char c, va_list arg)
 {

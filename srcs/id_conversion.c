@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 14:59:26 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:17:01 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:21:38 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static	char	*length_check_int(intmax_t n, t_menu *menu, va_list arg)
 {

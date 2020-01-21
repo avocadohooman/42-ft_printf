@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:23:22 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:17:26 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:21:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	conv_perc(t_menu *menu)
 {

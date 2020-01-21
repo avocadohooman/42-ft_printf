@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 17:02:11 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:17:18 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:22:12 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static	char	*length_check_u(unsigned long n, t_menu *menu, va_list arg)
 {

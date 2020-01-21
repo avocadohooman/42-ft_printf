@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:05:51 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:17:12 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:21:46 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	conv_p(t_menu *menu, va_list arg)
 {
