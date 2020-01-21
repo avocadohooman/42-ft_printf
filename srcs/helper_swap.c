@@ -6,11 +6,11 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:49:28 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/20 14:43:18 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 16:16:56 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 char	*swap_plus_minus(char *joint, char c, int i)
 {
