@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/20 15:47:10 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 13:35:57 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@
 
 	ft_printf("%-5");
 	printf("%-5");
-	printf("%d\n", ft_printf("%-5"));
-	printf("%d\n", printf("%-5"));
-	ft_putstr("#0-+ .*0123456789hlLzcspdiouxXf%");
+
+	ft_printf("%5");
+
+	//printf("hello, %s.", "gavin");
+	
 	
 	// printf("%-5");
 	// printf("\n");
@@ -160,7 +162,23 @@
  	// LEFT ALIGNED TESTS START
  	ft_printf("\n******************  LEFT ALIGNED TESTS START ******************\n\n");
 	
- 	ft_printf("\n****** TEST #1 ******\n\n");
+	ft_printf("\n****** TEST #FLAGS TEST ll******\n\n");
+ 	ft_printf("'%-+lli'\n'%-+lli'\n", lli, lli);
+ 	printf("'%-+lli'\n'%-+lli'\n", lli, lli);
+	
+	ft_printf("\n****** TEST #FLAGS TEST l ******\n\n");
+ 	ft_printf("'%-+li'\n'%-+li'\n", (long int)42, (long int)42);
+ 	printf("'%-+li'\n'%-+li'\n", (long int)42, (long int)42);
+
+	ft_printf("\n****** TEST #FLAGS TEST h ******\n\n");
+ 	ft_printf("'%-+hi'\n'%-+hi'\n", (short int)42, (short int)42);
+ 	printf("'%-+hi'\n'%-+hi'\n", (short int)42, (short int)42);
+
+	ft_printf("\n****** TEST #FLAGS TEST hh ******\n\n");
+ 	ft_printf("'%-+hhi'\n'%-+hhi'\n", (signed char)42, (signed char)42);
+ 	printf("'%-+hhi'\n'%-+hhi'\n", (signed char)42, (signed char)42);
+
+	ft_printf("\n****** TEST #1******\n\n");
  	ft_printf("'%-+i'\n'%-+lli'\n", i, lli);
  	printf("'%-+i'\n'%-+lli'\n", i, lli);
 
@@ -523,7 +541,6 @@
  	ft_printf("\n****** TEST #15 ******\n\n");
  	ft_printf("'%+#050o'\n'%+#050llo'\n", i, lli);
  	printf("'%+#050o'\n'%+#050llo'\n", i, lli);
-
 
  	ft_printf("\n****** TEST #19 ******\n\n");
  	ft_printf("'%-+050.o'\n'%-+050ll.o'\n", i, lli);
@@ -1272,16 +1289,15 @@ int main()
 	*/
 
 	simple();
-	c();
-	s();
-	p();
-	id();
-	o();
-	u();
-	x();
-	f();	
-	bonus();
-	//system("leaks ft_printf");
-	//while (1);
+	// c();
+	// s();
+	// p();
+	// id();
+	// o();
+	// u();
+	// x();
+	// f();	
+	// bonus();
+	// while (1);
 	return (0);
 }

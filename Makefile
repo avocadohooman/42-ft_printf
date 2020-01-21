@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/20 16:37:40 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/21 16:10:01 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,20 +40,18 @@ OBJS2 = $(subst .c,.o,$(subst srcs/,,$(SRCS2)))
 
 INCL = -I ./includes/ -I ./libft/includes/
 
+
+
 all: $(NAME)
 
-$(NAME): all
-	make -C $(LIBFT_FOLDER)
+$(NAME): libftmake
 	@cp $(LIB) ./$(NAME)
-	gcc $(FLAGS) $(INCLUDES) -c $(SRCS1)
-	ar rc $(NAME) $(OBJS)
+	@gcc $(FLAGS) $(INCLUDES) -c $(SRCS1)
+	@ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	#make -s clean 
 
-run: 
-	@gcc -c main.c $(NAME)
-	@gcc -c $(SRCS2) $(INCL)
-	@gcc $(INCL) $(OBJS2) $(LIB) -o $(EXE)
+libftmake:
+	@make -s -C $(LIBFT_FOLDER)
 	
 clean:
 	@rm -f $(OBJS) $(LIB_OBJ)
@@ -65,6 +63,12 @@ fclean: clean
 	
 re: fclean all
 
+run: 
+	@gcc -c $(SRCS2) $(INCL)
+	@gcc $(INCL) $(OBJS2) $(LIB) -o $(EXE)
+	
 printf: clean run
 		@rm -f $(OBJS2)
 		@make -s clean -C libft
+
+.PHONY: clean fclean re all

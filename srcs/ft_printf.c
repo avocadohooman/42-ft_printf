@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 09:50:00 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/20 15:48:39 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/21 15:36:06 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int		cm_parser(t_menu *menu, const char *fmt, va_list arg, int pos)
 		initiliaze_menu2(menu);
 	}
 	pos = menu->i;
+	if (fmt[pos] == '\0')
+		return (pos);
 	return (pos - 1);
 }
 
