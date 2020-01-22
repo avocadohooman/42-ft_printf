@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 11:03:55 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/21 16:50:32 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/22 13:16:54 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@
  {
 	
  	/*
- 	** ****************** Simple string without any variables ******************
+ 	** ****************** RANDOMG TESTS ******************
  	*/
 	
- 	// ft_printf("SIMPLE STRING TEST WITHOUT ANY VARIABLES\n");
+ 	// ft_printf("RANDOMG TESTS\n");
 
  	//ft_printf("This is a String\n");
  	//printf("%d\n", ft_printf("This is a String\n"));
 
-	ft_printf("%-5");
-	printf("%-5");
+	// ft_printf("%-5");
+	// printf("%-5");
 
-	ft_printf("%5");
+	// ft_printf("%5");
 
-	printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
+	// printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
 	
-	ft_printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
+	// ft_printf("'{%f}'\n'{%lf}'\n'{%Lf}'\n", 1.42, 1.42, 1.42l);
 
-	printf("PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
-	ft_printf("FT_PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
+	// printf("PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
+	// ft_printf("FT_PRINTF: \n'%.0p'\n'%.p'\n", 0, 0);
 
 	//printf("hello, %s.", "gavin");
 	
@@ -46,6 +46,13 @@
 	// printf("%-5");
 	// printf("\n");
 	//printf("%d\n", ft_printf("%-5\n"));
+
+	ft_printf("'%100c'\n", 0);
+	printf("'%100c'\n", 0);
+
+	ft_printf("'%lu'\n", -42);
+	printf("'%lu'\n", -42);
+
  }
 
  void	c(void)
@@ -558,8 +565,8 @@
  	printf("'%+050.0o'\n'%+050ll.0o'\n", i, lli);
 	
 	ft_printf("\n****** TEST #21 ******\n\n");
-	ft_printf("'%08.5i' ", 0);
-	printf("'%08.5i'", 0);
+	ft_printf("'%08.5i'\n", 0);
+	printf("'%08.5i'\n", 0);
 
  	// RIGHT ALIGNED TESTS END
  	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
@@ -1237,6 +1244,19 @@ void	f(void)
 	ft_printf("\n******************  RIGHT ALIGNED TESTS END ******************\n\n");
 
 }
+void mix()
+{
+	ft_printf("\n******************  MIX TESTS ******************\n\n");
+
+	ft_printf("\n****** TEST #1 ******\n\n");
+	char	*test;
+	long long int lli_n = -55165;
+ 	int	i_n = -3;
+	
+	ft_printf("'%%%*c%%'\n'%-015s'\n'%10 p'\n'%-10 i'\n'%-10 lli'\n", 10, 'A', "Hello World", &test, i_n, lli_n);
+	printf("'%%%*c%%'\n'%-015s'\n'%10 p'\n'%-10 i'\n'%-10 lli'\n", 10, 'A', "Hello World", &test, i_n, lli_n);
+}
+
 
 void	bonus()
 {
@@ -1271,7 +1291,7 @@ void	bonus()
 	ft_printf("\n****** TEST #6 STAR******\n\n");
  	ft_printf("'%*p'\n", 20, &a);
  	printf("'%*p'\n", 20, &a);
-
+	 
 	ft_printf("\n****** TEST #7 STAR ******\n\n");
  	ft_printf("'%*20.4p'\n", 20, &test);
  	printf("'%*20.4p'\n", 20, &test);
@@ -1289,6 +1309,8 @@ void	bonus()
  	printf("'%+030.*zd.'\n", 20, (size_t)42);
 }
 
+
+
 int main()
 {
 	/*
@@ -1296,15 +1318,16 @@ int main()
 	*/
 
 	simple();
-	// c();
-	// s();
-	// p();
-	// id();
-	// o();
-	// u();
-	// x();
-	// f();	
-	// bonus();
-	// while (1);
+	c();
+	s();
+	p();
+	id();
+	o();
+	u();
+	x();
+	f();
+	mix();
+	bonus();
+	while (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 12:56:11 by gmolin            #+#    #+#              #
-#    Updated: 2020/01/21 16:22:41 by gmolin           ###   ########.fr        #
+#    Updated: 2020/01/22 12:59:29 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,14 +44,12 @@ INCL = -I ./includes/ -I ./libft/includes/
 
 all: $(NAME)
 
-$(NAME): libftmake
+$(NAME): $(SRCS1)
+	@make -s -C $(LIBFT_FOLDER)
 	@cp $(LIB) ./$(NAME)
 	@gcc $(FLAGS) $(INCLUDES) -c $(SRCS1)
 	@ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-
-libftmake:
-	@make -s -C $(LIBFT_FOLDER)
 	
 clean:
 	@rm -f $(OBJS) $(LIB_OBJ)
